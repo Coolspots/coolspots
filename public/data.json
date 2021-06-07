@@ -7,7 +7,7 @@
         "img": "https://images.pexels.com/photos/4513657/pexels-photo-4513657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
         "spots": [
           {
-            "name": "metodoZero",
+            "name": "metodo zero",
             "description": "Metodo Zero Coworking offre a Padova tutto ciò in un ambiente rilassato e confortevole che garantisce sia la privacy che la sicurezza mettendo ogni coworker in grado di confrontarsi con altri, far nascere progetti, condividere pensieri e progetti in totale autonomia e libertà.",
             "img": "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
             "keywords": "Padova, free coffee, big terrace",
@@ -49,14 +49,14 @@
         "img": "https://images.pexels.com/photos/4947788/pexels-photo-4947788.jpeg?cs=srgb&dl=pexels-maria-orlova-4947788.jpg&fm=jpg",
         "spots": [
           {
-            "name": "Coolspot1",
+            "name": "Bcn Coolspot",
             "description": "Coolspot1 Coworking Barcelona. Very nice to work",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
             "keywords": "Barcelona, free coffee, big terrace",
             "priceFrom": "16"
           },
           {
-            "name": "Coolspot2",
+            "name": "Bcn Amazing spot",
             "description": "Very cool spot. Check it out.",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
             "keywords": "Barcelona, free coffee, big terrace",

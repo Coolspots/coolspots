@@ -23,7 +23,10 @@ const Card = ({ spot }) => {
       <div className={styles.infoWrapper}>
         <h3>{spot.name}</h3>
         <div className={styles.keywordsWrapper}>{renderKeywords(spot)}</div>
-        <span className={styles.priceFrom}>from {spot.priceFrom}€</span>
+        <span className={styles.priceFrom}>
+          <span>from </span>
+          {spot.priceFrom}€
+        </span>
       </div>
     </div>
   );
