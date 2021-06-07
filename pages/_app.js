@@ -46,7 +46,7 @@ const App = ({ Component, pageProps }) => {
         result.push(city);
       }
     });
-    setFilterResult(result.spots);
+    setFilterResult(result[0].spots);
   };
 
   // const handleSearch = (str) => {
