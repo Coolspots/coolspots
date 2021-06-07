@@ -18,9 +18,6 @@ const App = ({ Component, pageProps }) => {
       const data = await response.json();
       setData(data);
       setCities(data.data.cities);
-      const spots = data.data.cities.map((city) => city.spot);
-      console.log("useSpot", spots);
-
       setLoading(false);
     } catch (error) {
       console.log("oh no!! there was en error!", error);
@@ -32,15 +29,24 @@ const App = ({ Component, pageProps }) => {
 
   const handleSearch = (str) => {
     const result = [];
-    const filteredSpots = data.data.cities.map((city) => {
+    data.data.cities.map((city) => {
       return city.spots.map((spot) => {
         if (spot.keywords.toLowerCase().includes(str.toLowerCase())) {
           result.push(spot);
         }
       });
     });
-    console.log(`filteredSpots result`, result);
     setFilterResult(result);
+  };
+
+  const handleFilterByCity = (cityFromHeader) => {
+    const result = [];
+    data.data.cities.forEach((city) => {
+      if (city.name.toLowerCase() === cityFromHeader.toLowerCase()) {
+        result.push(city);
+      }
+    });
+    setFilterResult(result.spots);
   };
 
   // const handleSearch = (str) => {
@@ -53,7 +59,11 @@ const App = ({ Component, pageProps }) => {
 
   return (
     !loading && (
-      <Layout cities={cities} handleSearch={handleSearch}>
+      <Layout
+        cities={cities}
+        handleSearch={handleSearch}
+        handleFilterByCity={handleFilterByCity}
+      >
         <Component
           cities={cities}
           filterResult={filterResult}
