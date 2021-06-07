@@ -5,7 +5,11 @@ const Card = ({ spot }) => {
     const keywords = spot.keywords.split(",");
     if (keywords) {
       return keywords.map((keyword) => {
-        return <span key={keyword}>{keyword}</span>;
+        return (
+          <span key={keyword} className={styles.keywordChip}>
+            {keyword}
+          </span>
+        );
       });
     }
   };
@@ -19,7 +23,7 @@ const Card = ({ spot }) => {
       <div className={styles.infoWrapper}>
         <h3>{spot.name}</h3>
         <div className={styles.keywordsWrapper}>{renderKeywords(spot)}</div>
-        <p>from {spot.priceFrom}€</p>
+        <span className={styles.priceFrom}>from {spot.priceFrom}€</span>
       </div>
     </div>
   );

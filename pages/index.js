@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../components/Card/Card";
+import styles from "../styles/Page.module.scss";
 
 export default function Home({ filterResult, cities }) {
   const renderCards = () => {
@@ -19,7 +20,7 @@ export default function Home({ filterResult, cities }) {
   };
 
   return (
-    <div>
+    <div className={styles.page}>
       <Head>
         <title>Coolspots</title>
         <meta

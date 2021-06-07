@@ -1,4 +1,3 @@
-import { filter } from "lodash";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.scss";
