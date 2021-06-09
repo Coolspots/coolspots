@@ -7,6 +7,7 @@
         "img": "https://images.pexels.com/photos/4513657/pexels-photo-4513657.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
         "spots": [
           {
+            "id": "1",
             "name": "metodo zero",
             "description": "Metodo Zero Coworking offre a Padova tutto ciò in un ambiente rilassato e confortevole che garantisce sia la privacy che la sicurezza mettendo ogni coworker in grado di confrontarsi con altri, far nascere progetti, condividere pensieri e progetti in totale autonomia e libertà.",
             "img": "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
@@ -14,6 +15,7 @@
             "priceFrom": "16"
           },
           {
+            "id": "2",
             "name": "blended",
             "description": "Very cool spot. Check it out.",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
@@ -28,6 +30,7 @@
         "img": "https://images.pexels.com/photos/256150/pexels-photo-256150.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
         "spots": [
           {
+            "id": "3",
             "name": "WayCo Abastos",
             "description": "WayCo Abastos Coworking offre a Padova tutto ciò in un ambiente rilassato e confortevole che garantisce sia la privacy che la sicurezza mettendo ogni coworker in grado di confrontarsi con altri, far nascere progetti, condividere pensieri e progetti in totale autonomia e libertà.",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
@@ -35,6 +38,7 @@
             "priceFrom": "16"
           },
           {
+            "id": "4",
             "name": "WayCo Ruzafa",
             "description": "Very cool spot. Check it out.",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
@@ -49,6 +53,7 @@
         "img": "https://image.arrivalguides.com/415x300/02/f2cd31a89b0c335751b11fa8dea987a9.jpg",
         "spots": [
           {
+            "id": "5",
             "name": "Bcn Coolspot",
             "description": "Coolspot1 Coworking Barcelona. Very nice to work",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
@@ -56,6 +61,7 @@
             "priceFrom": "16"
           },
           {
+            "id": "6",
             "name": "Bcn Amazing spot",
             "description": "Very cool spot. Check it out.",
             "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
