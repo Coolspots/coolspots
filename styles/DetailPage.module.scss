@@ -1,6 +1,40 @@
-.gallery {
+.spotInfo {
+  padding: 1rem;
+  section {
+    color: #343434;
+  }
+  h3 {
+    padding: 1rem 0;
+  }
+}
+.gallerySection {
   width: 100%;
+  section {
+    padding: 0;
+  }
+  padding: 0;
   img {
     width: 100%;
+  }
+}
+.lineDivision {
+  border: 1px solid rgba(52, 52, 52, 0.2);
+  margin-top: 1.5rem;
+}
+
+.amenitiesSection {
+  li {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 2rem;
+  }
+}
+
+.descriptionSection {
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
   }
 }

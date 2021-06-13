@@ -22,14 +22,13 @@ const Spot = () => {
       data.data.cities.map((city) => {
         return city.spots.map((spot) => {
           if (spot.id === spotId) {
-            console.log("push spot", spot);
-
             result.push(spot);
           }
         });
       });
-      console.log("data :>> ", data);
       setSpotData(result[0]);
+      console.log(spotData);
+
       setLoading(false);
     } catch (error) {
       console.log("oh no!! there was en error!", error);
@@ -42,20 +41,83 @@ const Spot = () => {
   }, [router.isReady]);
 
   const renderGallery = () => {
-    const gallery = spotData.images.map((img) => {
-      return <img src={`${img}`} alt={`${spotData.name} image`} />;
-    });
-    return gallery;
+    if (spotData.images) {
+      const gallery = spotData.images.map((img) => {
+        return <img key={img} src={`${img}`} alt={`${spotData.name} image`} />;
+      });
+      return gallery;
+    }
+  };
+
+  const renderAmenities = () => {
+    if (spotData.amenities) {
+      const amenitiesList = spotData.amenities.map((amenity) => {
+        return <li key={amenity}>{amenity}</li>;
+      });
+      return amenitiesList;
+    }
+  };
+
+  const renderMap = (src) => {
+    return (
+      <iframe
+        src={src}
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    );
+  };
+
+  const renderReviews = () => {
+    // this review logic will be more complex in the future since every review will have a user and that's something that its not ready yet because we have no users
+    if (spotData.reviews.length > 0) {
+      return spotData.reviews.map((review) => {
+        <p>{review}</p>;
+      });
+    }
+    return <p>This spot has no reviews yet</p>;
   };
 
   return (
     (!loading && (
       <Layout spotName={spotData.name}>
-        <div className={styles.gallery}>
-          <h3>Gallery</h3>
-          {renderGallery()}
+        <div className={styles.spotInfo}>
+          <section className={styles.gallerySection}>
+            <h3>Gallery</h3>
+            {renderGallery()}
+          </section>
+          <section className={styles.amenitiesSection}>
+            <h3>Amenities</h3>
+            <ul>{renderAmenities()}</ul>
+            <div className={styles.lineDivision}></div>
+          </section>
+          <section className={styles.descriptionSection}>
+            <h3>Description</h3>
+            <p>{spotData.description}</p>
+            <div className={styles.lineDivision}></div>
+          </section>
+          {/*  <section>
+          <h3>Location</h3>
+          <div className={styles.mapWrapper}>
+             <iframe
+              src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2800.862264605587!2d11.890053515555717!3d45.41211697910036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x477edb8548820495%3A0xbe60eb2153586d43!2sMetodo%20Zero%2C%20Via%20Niccol%C3%B2%20Tommaseo%2C%2096A%2C%2035131%20Padova%20PD%2C%20Italia!3m2!1d45.4121445!2d11.8922625!5e0!3m2!1ses!2ses!4v1623600021489!5m2!1ses!2ses"
+              width="600"
+              height="450"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe> 
+          </div>
+        </section>*/}
+          <section className={styles.reviews}>
+            <h3>Reviews</h3>
+            {renderReviews()}
+            <div className={styles.lineDivision}></div>
+          </section>
         </div>
-        <div className={styles.amenities}></div>
       </Layout>
     )) || <p>Loading...</p>
   );

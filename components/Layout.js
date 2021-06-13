@@ -5,9 +5,6 @@ import classnames from "classnames";
 
 const Layout = ({ children, spotName }) => {
   const [shouldShowForm, setShouldShowForm] = useState(false);
-  const toggleFormDisplay = () => {
-    setShouldShowForm(!showForm);
-  };
   return (
     <>
       <div
@@ -56,6 +53,16 @@ const Layout = ({ children, spotName }) => {
           </div>
         </nav>
         <main className={styles.main}>{children}</main>
+        <div className={styles.bookBtnBottomWrapper}>
+          <button
+            className={styles.bookBtn}
+            onClick={() => {
+              setShouldShowForm(!shouldShowForm);
+            }}
+          >
+            Book
+          </button>
+        </div>
       </div>
     </>
   );

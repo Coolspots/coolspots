@@ -59,15 +59,20 @@
       font-size: 2rem;
       line-height: 77px;
     }
-    .bookBtn {
-      width: 140px;
-      padding: 0.5rem;
-      background-color: #2f80ed;
-      border-radius: 2px;
-      border: none;
-      color: white;
-    }
   }
+}
+
+.bookBtn {
+  width: 140px;
+  padding: 0.5rem;
+  background-color: #2f80ed;
+  border-radius: 2px;
+  border: none;
+  color: white;
+}
+
+.bookBtnBottomWrapper {
+  padding: 2rem;
 }
 
 .formOverlay {
