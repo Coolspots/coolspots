@@ -2,6 +2,8 @@ import Link from "next/link";
 import styles from "../../styles/Card.module.scss";
 
 const Card = ({ spot }) => {
+  console.log("spot!!", spot);
+
   const renderKeywords = (spot) => {
     const keywords = spot.keywords.split(",");
     if (keywords) {
@@ -20,7 +22,7 @@ const Card = ({ spot }) => {
       <div key={spot.name} className={styles.card}>
         <div
           className={styles.cardImage}
-          style={{ backgroundImage: "url(" + spot.img + ")" }}
+          style={{ backgroundImage: "url(" + spot.images[0] + ")" }}
         ></div>
         <div className={styles.infoWrapper}>
           <h3>{spot.name}</h3>

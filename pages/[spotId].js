@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Layout from "../components/Layout";
+import styles from "../styles/DetailPage.module.scss";
 
 const Spot = () => {
   const router = useRouter();
@@ -20,24 +22,46 @@ const Spot = () => {
       data.data.cities.map((city) => {
         return city.spots.map((spot) => {
           if (spot.id === spotId) {
+            console.log("push spot", spot);
+
             result.push(spot);
           }
         });
       });
-      setSpotData(result);
+      console.log("data :>> ", data);
+      setSpotData(result[0]);
       setLoading(false);
-      console.log("spotData", spotData);
     } catch (error) {
       console.log("oh no!! there was en error!", error);
     }
   };
 
   useEffect(() => {
+    if (!router.isReady) return;
     getSpot();
-  }, []);
-  const spot = spotData[0];
-  return (!loading && <div>{spot.name}</div>) || <p>Loading...</p>;
+  }, [router.isReady]);
+
+  const renderGallery = () => {
+    const gallery = spotData.images.map((img) => {
+      return <img src={`${img}`} alt={`${spotData.name} image`} />;
+    });
+    return gallery;
+  };
+
+  return (
+    (!loading && (
+      <Layout spotName={spotData.name}>
+        <div className={styles.gallery}>
+          <h3>Gallery</h3>
+          {renderGallery()}
+        </div>
+        <div className={styles.amenities}></div>
+      </Layout>
+    )) || <p>Loading...</p>
+  );
 };
+
+// TODO implement getStaticPaths and getStaticProps when the props come from backend
 
 // export async function getStaticPaths() {
 //   // Return a list of possible value for id

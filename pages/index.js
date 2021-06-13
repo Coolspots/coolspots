@@ -6,13 +6,8 @@ import styles from "../styles/Page.module.scss";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  // const [cities, setCities] = useState([]);
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setResults(filterResult);
-  // }, [filterResult]);
 
   const getData = async () => {
     try {
@@ -24,7 +19,7 @@ export default function Home() {
       });
       const data = await response.json();
       setData(data);
-      // setCities(data.data.cities);
+
       setLoading(false);
     } catch (error) {
       console.log("oh no!! there was en error!", error);
@@ -88,8 +83,23 @@ export default function Home() {
           handleSearch={handleSearch}
           handleFilterByCity={handleFilterByCity}
         />
+        <div className={styles.cardsContainer}></div>
         {renderCards()}
       </div>
     )) || <p>Loading...</p>
   );
 }
+
+// export const getStaticProps = async () => {
+//   // TODO replace with real call to backend endpoint to retrieve cities
+//   const res = await fetch(
+//     `https://jsonplaceholder.typicode.com/posts?_limit=6`
+//   );
+//   const data = await res.json();
+
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// };

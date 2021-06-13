@@ -9,18 +9,57 @@
           {
             "id": "1",
             "name": "metodo zero",
-            "description": "Metodo Zero Coworking offre a Padova tutto ciò in un ambiente rilassato e confortevole che garantisce sia la privacy che la sicurezza mettendo ogni coworker in grado di confrontarsi con altri, far nascere progetti, condividere pensieri e progetti in totale autonomia e libertà.",
-            "img": "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
+            "description": "Flexing over 600 sqm, Metodo Zero is a great space for professional and social interactions. Up to 20 locations for rent in an open space of about 300 square meters. 5 large 250 × 130 cm desks for up to 4 people. 2 desks of 150 × 90 cm for single posts. In addition: cabinets and dedicated shelves on libraries, vision board, coffe area, purified water dispenser, padded chairs with wheels, power outlets on each table.",
+            "images": [
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-15.jpg",
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-16.jpg",
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-17.jpg",
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-18.jpg",
+              "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-32.jpg"
+            ],
             "keywords": "Padova, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           },
           {
             "id": "2",
             "name": "blended",
             "description": "Very cool spot. Check it out.",
-            "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
+            "images": [
+              "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg"
+            ],
             "keywords": "Padova, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           }
         ]
       },
@@ -33,17 +72,51 @@
             "id": "3",
             "name": "WayCo Abastos",
             "description": "WayCo Abastos Coworking offre a Padova tutto ciò in un ambiente rilassato e confortevole che garantisce sia la privacy che la sicurezza mettendo ogni coworker in grado di confrontarsi con altri, far nascere progetti, condividere pensieri e progetti in totale autonomia e libertà.",
-            "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
+            "images": [
+              "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg"
+            ],
             "keywords": "Valencia, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           },
           {
             "id": "4",
             "name": "WayCo Ruzafa",
             "description": "Very cool spot. Check it out.",
-            "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
+            "images": [
+              "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg"
+            ],
             "keywords": "Valencia, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           }
         ]
       },
@@ -56,17 +129,51 @@
             "id": "5",
             "name": "Bcn Coolspot",
             "description": "Coolspot1 Coworking Barcelona. Very nice to work",
-            "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
+            "images": [
+              "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg"
+            ],
             "keywords": "Barcelona, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           },
           {
             "id": "6",
             "name": "Bcn Amazing spot",
             "description": "Very cool spot. Check it out.",
-            "img": "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg",
+            "images": [
+              "https://blended-padova.it/wp-content/uploads/2020/04/blended005.jpg"
+            ],
             "keywords": "Barcelona, free coffee, big terrace",
-            "priceFrom": "16"
+            "amenities": [
+              "Flexible desk",
+              "Ultra fast Internet",
+              "Power outlets",
+              "Air conditioning",
+              "Relax area",
+              "Phone booths",
+              "Kitchen access",
+              "Bathroom access",
+              "Parking",
+              "Water",
+              "Fruit",
+              "Coffee"
+            ],
+            "priceFrom": "16",
+            "reviews": []
           }
         ]
       }
