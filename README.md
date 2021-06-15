@@ -11,7 +11,7 @@ yarn add sass
 
 If you get the error
 
-<span style="color:red">some **TypeError: (...) is not a function** text</span>
+**TypeError: (...) is not a function**
 
 
 ```
