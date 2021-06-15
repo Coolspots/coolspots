@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Header from "../components/Header/Header";
 import Card from "../components/Card/Card";
+import Loading from "../components/Loading/Loading";
 import styles from "../styles/Page.module.scss";
 
 export default function Home() {
@@ -86,7 +87,7 @@ export default function Home() {
         <div className={styles.cardsContainer}></div>
         {renderCards()}
       </div>
-    )) || <p>Loading...</p>
+    )) || <Loading />
   );
 }
 
