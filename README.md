@@ -5,17 +5,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, install dependencies:
 
 ```bash
-yarn install
-yarn dev
+yarn 
+yarn add sass
 ```
 
 If you get the error
-```
-Server Error
-TypeError: (0 , react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV) is not a function
-```
 
-add:
+<span style="color:red">TypeError: (...) is not a function</span>.
+
 ```
 yarn add react@16.13 react-dom@16.13
 ```
