@@ -2,13 +2,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
 ```
+
+If you get the error
+```Server Error
+TypeError: (0 , react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV) is not a function
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
