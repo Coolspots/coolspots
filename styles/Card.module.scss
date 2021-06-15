@@ -55,11 +55,12 @@
     padding-bottom: 2.5rem;
   }
   .keywordChip {
-    color: #2f80ed;
-    border: 1px solid #2f80ed;
+    color: $main-blue;
+    border: 1px solid $main-blue;
     padding: 8px;
     font-size: 9px;
     border-radius: 5px;
     margin: 0.3rem 0.3rem 0 0;
+    height: 30px;
   }
 }

@@ -1,7 +1,8 @@
+@import "./variables.scss";
 .spotInfo {
   padding: 1rem;
   section {
-    color: #343434;
+    color: $dark;
   }
   h3 {
     padding: 1rem 0;
@@ -62,7 +63,7 @@
 .bookBtn {
   width: 140px;
   padding: 0.5rem;
-  background-color: #2f80ed;
+  background-color: $main-blue;
   border-radius: 2px;
   border: none;
   color: white;

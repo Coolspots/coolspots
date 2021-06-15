@@ -10,47 +10,47 @@
 <path d="M111.545 10.8069C110.942 9.94377 110.132 9.51219 109.116 9.51219C108.702 9.51219 108.297 9.61789 107.901 9.82927C107.505 10.0407 107.306 10.3841 107.306 10.8598C107.306 11.2473 107.47 11.5291 107.798 11.7053C108.125 11.8814 108.538 12.0312 109.038 12.1545C109.538 12.2778 110.072 12.4099 110.64 12.5508C111.226 12.6741 111.769 12.8767 112.268 13.1585C112.768 13.4228 113.182 13.7927 113.509 14.2683C113.836 14.7439 114 15.3957 114 16.2236C114 16.981 113.836 17.624 113.509 18.1524C113.199 18.6633 112.785 19.0772 112.268 19.3943C111.769 19.7114 111.2 19.9404 110.563 20.0813C109.925 20.2222 109.288 20.2927 108.65 20.2927C107.686 20.2927 106.798 20.1518 105.988 19.8699C105.179 19.5881 104.455 19.0772 103.818 18.3374L105.885 16.3557C106.281 16.8137 106.703 17.1924 107.151 17.4919C107.617 17.7737 108.177 17.9146 108.831 17.9146C109.055 17.9146 109.288 17.8882 109.529 17.8354C109.77 17.7825 109.994 17.6944 110.201 17.5711C110.408 17.4478 110.571 17.2981 110.692 17.1219C110.83 16.9282 110.899 16.708 110.899 16.4614C110.899 16.021 110.735 15.6951 110.408 15.4837C110.08 15.2724 109.667 15.105 109.167 14.9817C108.668 14.8408 108.125 14.7175 107.539 14.6118C106.971 14.4885 106.436 14.3035 105.937 14.0569C105.437 13.7927 105.024 13.4316 104.696 12.9736C104.369 12.5156 104.205 11.8814 104.205 11.0711C104.205 10.3665 104.343 9.75881 104.619 9.24797C104.912 8.71951 105.291 8.28794 105.756 7.95325C106.221 7.61856 106.755 7.37195 107.358 7.21341C107.961 7.05488 108.573 6.97561 109.193 6.97561C110.02 6.97561 110.838 7.12534 111.648 7.4248C112.458 7.70664 113.113 8.19986 113.612 8.90447L111.545 10.8069Z" fill="url(#paint8_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint1_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint2_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint3_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint4_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint5_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint6_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint7_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
 <linearGradient id="paint8_linear" x1="57" y1="-0.866667" x2="57" y2="26.8667" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2F80ED"/>
+<stop stop-color="$main-blue"/>
 <stop offset="0.408645" stop-color="#5E00BC"/>
 <stop offset="1" stop-color="#E60563"/>
 </linearGradient>
