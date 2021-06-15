@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
 import classnames from "classnames";

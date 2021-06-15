@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import styles from "../styles/HowItWorks.module.scss";
 import Image from "next/image";
 

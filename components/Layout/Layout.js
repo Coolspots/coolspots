@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../styles/Layout.module.scss";
+import styles from "../../styles/Layout.module.scss";
 import Link from "next/link";
 import classnames from "classnames";
 
