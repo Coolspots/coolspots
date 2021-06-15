@@ -11,7 +11,7 @@ yarn add sass
 
 If you get the error
 
-<span style="color:red">TypeError: (...) is not a function</span>.
+<span style="color:red">*red* TypeError: (...) is not a function</span>.
 
 ```
 yarn add react@16.13 react-dom@16.13
