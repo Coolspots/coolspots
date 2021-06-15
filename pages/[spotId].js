@@ -62,14 +62,7 @@ const Spot = () => {
   };
 
   const renderMap = (src) => {
-    return (
-      <iframe
-        src={src}
-        style={{ border: 0, width: "600px", height: "450px" }}
-        allowfullscreen=""
-        loading="lazy"
-      ></iframe>
-    );
+    return <iframe src={src} allowfullscreen="" loading="lazy"></iframe>;
   };
 
   const renderReviews = () => {

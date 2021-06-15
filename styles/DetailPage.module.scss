@@ -60,6 +60,17 @@
   } /* Specify a stack order in case you're using a different order for other*/
 }
 
+.locationSection {
+  .mapWrapper {
+    width: 100%;
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+    }
+  }
+}
+
 .bookBtn {
   width: 140px;
   padding: 0.5rem;
