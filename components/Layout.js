@@ -3,33 +3,12 @@ import styles from "../styles/Layout.module.scss";
 import Link from "next/link";
 import classnames from "classnames";
 
-const Layout = ({ children, spotName }) => {
-  const [shouldShowForm, setShouldShowForm] = useState(false);
+const Layout = ({ children, spotName, setShouldShowForm, shouldShowForm }) => {
+  const handleShowForm = () => {
+    setShouldShowForm(!shouldShowForm);
+  };
   return (
     <>
-      <div
-        className={classnames(styles.formOverlay, {
-          [styles.open]: shouldShowForm,
-        })}
-      >
-        <button
-          onClick={() => {
-            setShouldShowForm(!shouldShowForm);
-          }}
-        >
-          Close
-        </button>
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdd7-87U1DYtqZ5MpIgyFx002T7-oifsXazpYXQjRBVlWHXNA/viewform?embedded=true"
-          width="640"
-          height="738"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >
-          Loading…
-        </iframe>
-      </div>
       <div className={styles.container}>
         <nav className={styles.navbarLayout}>
           <ul>
@@ -40,29 +19,33 @@ const Layout = ({ children, spotName }) => {
               <Link href="/howitworks">How It Works</Link>
             </li>
           </ul>
-          <div className={styles.nameAndBookContainer}>
-            <h1 className={styles.spotName}>{spotName}</h1>
-            <button
-              className={styles.bookBtn}
-              onClick={() => {
-                setShouldShowForm(!shouldShowForm);
-              }}
-            >
-              Book
-            </button>
-          </div>
+          {(spotName && (
+            <div className={styles.nameAndBookContainer}>
+              <h1 className={styles.spotName}>{spotName}</h1>
+              <button className={styles.bookBtn} onClick={handleShowForm}>
+                Book
+              </button>
+            </div>
+          )) || (
+            <div className={styles.howItWorksHeaderText}>
+              <p>
+                Social, comfy workspaces with discounts for remote workers,
+                nomads, entrepreneurs and students
+              </p>
+            </div>
+          )}
         </nav>
         <main className={styles.main}>{children}</main>
-        <div className={styles.bookBtnBottomWrapper}>
+        {/* <div className={styles.bookBtnBottomWrapper}>
           <button
             className={styles.bookBtn}
             onClick={() => {
-              setShouldShowForm(!shouldShowForm);
+              setShouldShowForm(!shouldShowForm); // esto cambiara
             }}
           >
             Book
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );

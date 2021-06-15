@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.howItWorksPage {
+  text-align: center;
+  color: #343434;
+  h1 {
+    padding: 1.5rem;
+    font-size: 42px;
+    font-weight: 400;
+  }
+  .cardWrapper {
+    @media (min-width: $breakpoint-mobile) {
+      display: flex;
+    }
+  }
+  .card {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 4rem;
+    @media (min-width: $breakpoint-mobile) {
+      padding: 0;
+      flex-direction: column-reverse;
+    }
+  }
+}

@@ -2,11 +2,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import styles from "../styles/DetailPage.module.scss";
+import classnames from "classnames";
 
 const Spot = () => {
   const router = useRouter();
   const [spotData, setSpotData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [shouldShowForm, setShouldShowForm] = useState(false);
   const { spotId } = router.query;
 
   const getSpot = async () => {
@@ -83,7 +85,34 @@ const Spot = () => {
 
   return (
     (!loading && (
-      <Layout spotName={spotData.name}>
+      <Layout
+        spotName={spotData.name}
+        shouldShowForm={shouldShowForm}
+        setShouldShowForm={setShouldShowForm}
+      >
+        <div
+          className={classnames(styles.formOverlay, {
+            [styles.open]: shouldShowForm,
+          })}
+        >
+          <button
+            onClick={() => {
+              setShouldShowForm(!shouldShowForm);
+            }}
+          >
+            Close
+          </button>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdd7-87U1DYtqZ5MpIgyFx002T7-oifsXazpYXQjRBVlWHXNA/viewform?embedded=true"
+            width="640"
+            height="738"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+          >
+            Loading…
+          </iframe>
+        </div>
         <div className={styles.spotInfo}>
           <section className={styles.gallerySection}>
             <h3>Gallery</h3>
@@ -117,6 +146,16 @@ const Spot = () => {
             {renderReviews()}
             <div className={styles.lineDivision}></div>
           </section>
+        </div>
+        <div className={styles.bookBtnBottomWrapper}>
+          <button
+            className={styles.bookBtn}
+            onClick={() => {
+              setShouldShowForm(!shouldShowForm); // esto cambiara
+            }}
+          >
+            Book
+          </button>
         </div>
       </Layout>
     )) || <p>Loading...</p>
