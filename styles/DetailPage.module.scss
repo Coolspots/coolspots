@@ -1,4 +1,9 @@
 @import "./variables.scss";
+.detailPage {
+  .navbar {
+    background-color: red;
+  }
+}
 .spotInfo {
   padding: 1rem;
   section {

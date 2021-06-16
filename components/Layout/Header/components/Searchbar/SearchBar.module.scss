@@ -1,0 +1,28 @@
+@import "../../../../../styles/variables.scss";
+
+.searchBar {
+  text-align: center;
+  height: 100%;
+  width: 280px;
+  margin: 0 auto;
+  input {
+    background-image: url(https://image.flaticon.com/icons/png/512/56/56936.png);
+    background-size: 1rem;
+    background-position: 10px;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    height: 32px;
+    width: 100%;
+    padding-left: 2rem;
+    border: 1px solid rgba(67, 90, 111, 0.14);
+    color: #425a70;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    @media (max-width: $breakpoint-mobile) {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

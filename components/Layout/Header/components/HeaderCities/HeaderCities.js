@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import classnames from "classnames";
-import styles from "../../../styles/Header.module.scss";
+import styles from "./HeaderCities.module.scss";
 
 const HeaderCities = ({ cities, handleFilterByCity }) => {
   const [cityTilesInfo, setCiTyTilesInfo] = useState([]);
@@ -13,7 +13,7 @@ const HeaderCities = ({ cities, handleFilterByCity }) => {
   };
 
   const renderCities = () => {
-    return cityTilesInfo.map((city) => {
+    return cityTilesInfo?.map((city) => {
       return (
         <li
           onClick={() => handleFilter(city.name)}

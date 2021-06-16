@@ -1,0 +1,53 @@
+@import "../../../../../styles/variables.scss";
+.navbar {
+  .textLogo {
+    font-weight: 800;
+  }
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .textLogo {
+    font-weight: 800;
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nameAndBookContainer {
+    text-transform: capitalize;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4.5rem;
+
+    .spotName {
+      font-weight: 400;
+      font-size: 3rem;
+      line-height: 77px;
+    }
+  }
+}
+
+.bookBtn {
+  width: 140px;
+  padding: 0.5rem;
+  background-color: $main-blue;
+  border-radius: 2px;
+  border: none;
+  color: white;
+}
+
+.howItWorksHeaderText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 3.5rem 1.5rem 2.5rem 1rem;
+}

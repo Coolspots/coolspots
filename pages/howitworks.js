@@ -4,8 +4,11 @@ import Image from "next/image";
 
 const howItWorks = () => {
   return (
-    <Layout>
-      <div className={styles.howItWorksPage}>
+    <div className={styles.howItWorksPage}>
+      <Layout
+        headerText="Social, comfy workspaces with discounts for remote workers, nomads,
+            entrepreneurs and students"
+      >
         <h1>What can I book with Coolspots?</h1>
         <div className={styles.cardWrapper}>
           <div className={styles.card}>
@@ -16,10 +19,9 @@ const howItWorks = () => {
               width={220}
               height={160}
             />
-            {/* <img src="/howitworks-coworking.jpg" alt="coworking" /> */}
           </div>
           <div className={styles.card}>
-            <h4>Co-working spaces</h4>
+            <h4>Coffeeshops</h4>
             <Image
               src="/howitworks-coffeeshop.jpg"
               alt="coffeeshop"
@@ -28,7 +30,7 @@ const howItWorks = () => {
             />
           </div>
           <div className={styles.card}>
-            <h4>Co-working spaces</h4>
+            <h4>Meeting rooms</h4>
             <Image
               src="/howitworks-meeting-room.jpg"
               alt="meetingroom"
@@ -37,8 +39,8 @@ const howItWorks = () => {
             />
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   );
 };
 

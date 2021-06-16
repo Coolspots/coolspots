@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Header from "../components/Header/Header";
+import Header from "../components/Layout/Header/Header";
 import Card from "../components/Card/Card";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/Page.module.scss";
+import Layout from "../components/Layout/Layout";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -69,25 +70,27 @@ export default function Home() {
     });
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    (!loading && (
-      <div className={styles.page}>
-        <Head>
-          <title>Coolspots</title>
-          <meta
-            name="Coolspots coworking space coffeshop bar coffee"
-            content="Coolspots home page"
-          />
-        </Head>
-        <Header
-          cities={data?.data?.cities}
-          handleSearch={handleSearch}
-          handleFilterByCity={handleFilterByCity}
+    <Layout
+      cities={data?.data?.cities}
+      handleSearch={handleSearch}
+      handleFilterByCity={handleFilterByCity}
+      headerText="Book coffeeshops and co-working spaces to work from anywhere"
+    >
+      <Head>
+        <title>Coolspots</title>
+        <meta
+          name="Coolspots coworking space coffeshop bar coffee"
+          content="Coolspots home page"
         />
-        <div className={styles.cardsContainer}></div>
-        {renderCards()}
-      </div>
-    )) || <Loading />
+      </Head>
+      <div className={styles.cardsContainer}></div>
+      {renderCards()}
+    </Layout>
   );
 }
 

@@ -75,8 +75,12 @@ const Spot = () => {
     return <p>This spot has no reviews yet</p>;
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    (!loading && (
+    <div className={styles.detailPage}>
       <Layout
         spotName={spotData.name}
         shouldShowForm={shouldShowForm}
@@ -141,7 +145,7 @@ const Spot = () => {
           </button>
         </div>
       </Layout>
-    )) || <Loading />
+    </div>
   );
 };
 
