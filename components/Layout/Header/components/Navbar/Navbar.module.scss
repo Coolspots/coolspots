@@ -9,6 +9,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (min-width: $breakpoint-mobile) {
+    height: auto;
+  }
 
   .textLogo {
     font-weight: 800;
