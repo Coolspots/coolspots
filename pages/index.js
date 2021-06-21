@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Header from "../components/Layout/Header/Header";
 import Card from "../components/Card/Card";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/Page.module.scss";
@@ -13,13 +12,16 @@ export default function Home() {
 
   const getData = async () => {
     try {
-      const response = await fetch("data.json", {
+      const response = await fetch("http://127.0.0.1:5000/spots", {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
       });
       const data = await response.json();
+      console.log("main data", data);
+
       setData(data);
 
       setLoading(false);
@@ -34,39 +36,37 @@ export default function Home() {
 
   const handleSearch = (str) => {
     const result = [];
-    data.data.cities.map((city) => {
-      return city.spots.map((spot) => {
-        if (spot.keywords.toLowerCase().includes(str.toLowerCase())) {
-          result.push(spot);
-        }
-      });
+    data.map((spot) => {
+      if (spot.keywords.toLowerCase().includes(str.toLowerCase())) {
+        result.push(spot);
+      }
     });
     setFilteredResult(result);
   };
 
   const handleFilterByCity = (cityFromHeader) => {
     const result = [];
-    data.data.cities.forEach((city) => {
-      if (city.name.toLowerCase() === cityFromHeader.toLowerCase()) {
-        result.push(city);
+    data.forEach((spot) => {
+      if (spot.city.toLowerCase() === cityFromHeader.toLowerCase()) {
+        result.push(spot);
       }
     });
-    setFilteredResult(result[0].spots);
+    console.log("results filter city", result);
+
+    setFilteredResult(result);
   };
 
   const renderCards = () => {
     if (filteredResult?.length) {
       return filteredResult.map((spot) => {
-        return <Card key={spot.name} spot={spot} />;
+        return <Card key={spot._id} spot={spot} />;
       });
     }
     if (Array.isArray(filteredResult) && !filteredResult.length) {
       return <p>No spots matching your search :(</p>;
     }
-    return data.data.cities.map((city) => {
-      return city.spots.map((spot) => {
-        return <Card key={spot.name} spot={spot} />;
-      });
+    return data.map((spot) => {
+      return <Card key={spot._id} spot={spot} />;
     });
   };
 
@@ -76,7 +76,7 @@ export default function Home() {
 
   return (
     <Layout
-      cities={data?.data?.cities}
+      data={data}
       handleSearch={handleSearch}
       handleFilterByCity={handleFilterByCity}
       headerText="Book coffeeshops and co-working spaces to work from anywhere"

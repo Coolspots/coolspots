@@ -14,24 +14,15 @@ const Spot = () => {
 
   const getSpot = async () => {
     try {
-      const response = await fetch("data.json", {
+      const response = await fetch(`http://localhost:5000/spots/${spotId}`, {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
       });
       const data = await response.json();
-      const result = [];
-      data.data.cities.map((city) => {
-        return city.spots.map((spot) => {
-          if (spot.id === spotId) {
-            result.push(spot);
-          }
-        });
-      });
-      setSpotData(result[0]);
-      console.log(spotData);
-
+      console.log("spot by id =>", data);
+      setSpotData(data[0]);
       setLoading(false);
     } catch (error) {
       console.log("oh no!! there was en error!", error);
@@ -67,7 +58,7 @@ const Spot = () => {
 
   const renderReviews = () => {
     // this review logic will be more complex in the future since every review will have a user and that's something that its not ready yet because we have no users
-    if (spotData.reviews.length > 0) {
+    if (spotData.reviews?.length > 0) {
       return spotData.reviews.map((review) => {
         <p>{review}</p>;
       });

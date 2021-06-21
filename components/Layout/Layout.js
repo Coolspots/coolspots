@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 
 const Layout = ({
   children,
-  cities,
+  data,
   handleSearch,
   handleFilterByCity,
   spotName,
@@ -11,6 +11,7 @@ const Layout = ({
   shouldShowForm,
   headerText,
 }) => {
+  console.log("handleFilterByCity :>> ", handleFilterByCity);
   const handleShowForm = () => {
     setShouldShowForm(!shouldShowForm);
   };
@@ -18,7 +19,7 @@ const Layout = ({
     <>
       <div className={styles.container}>
         <Header
-          cities={cities}
+          data={data}
           handleSearch={handleSearch}
           handleFilterByCity={handleFilterByCity}
           spotName={spotName}

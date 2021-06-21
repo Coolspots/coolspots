@@ -4,14 +4,15 @@ import HeaderCities from "./components/HeaderCities/HeaderCities";
 import styles from "./Header.module.scss";
 
 const Header = ({
-  cities,
+  data,
   handleSearch,
   handleFilterByCity,
   headerText,
   spotName,
   handleShowForm,
 }) => {
-  const shouldShowSearchBar = cities?.length > 0;
+  console.log("handleFilterByCity :>> ", handleFilterByCity);
+  const shouldShowSearchBar = data?.length > 0;
   return (
     <div className={styles.header}>
       <Navbar
@@ -19,8 +20,12 @@ const Header = ({
         headerText={headerText}
         handleShowForm={handleShowForm}
       />
-      {shouldShowSearchBar && <SearchBar handleSearch={handleSearch} />}
-      <HeaderCities cities={cities} handleFilterByCity={handleFilterByCity} />
+      {shouldShowSearchBar && (
+        <>
+          <SearchBar handleSearch={handleSearch} />
+          <HeaderCities data={data} handleFilterByCity={handleFilterByCity} />
+        </>
+      )}
     </div>
   );
 };
