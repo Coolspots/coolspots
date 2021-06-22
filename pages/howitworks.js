@@ -73,16 +73,6 @@ const howItWorks = () => {
             </ul>
           </div>
         </section>
-        <section>
-          <p>Join the remote work revolution</p>
-          <p>
-            Book through Coolspots to get guaranteed desk in all our locations
-            and find a community of remote workers
-          </p>
-          <h3>Daily spots start as low as</h3>
-          <span>€16</span>
-          <p>per day</p>
-        </section>
       </Layout>
     </div>
   );
