@@ -14,21 +14,48 @@
     font-weight: 400;
   }
   .cardWrapper {
-    @media (min-width: $breakpoint-mobile) {
-      display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $breakpoint-tablet) {
+      flex-direction: row;
     }
   }
   .card {
     width: 100%;
-    max-width: 800px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 1rem 4rem;
-    @media (min-width: $breakpoint-mobile) {
-      padding: 0;
+    padding: 1rem 3rem;
+    @media (min-width: $breakpoint-tablet) {
       flex-direction: column-reverse;
     }
+  }
+  .section {
+    padding: 2rem;
+    text-align: start;
+    @media (min-width: $breakpoint-tablet) {
+      text-align: center;
+    }
+    .sectionTitle {
+      text-align: center;
+    }
+    h3 {
+      padding-bottom: 1.5rem;
+    }
+    p {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.benefitList {
+  @media (min-width: $breakpoint-tablet) {
+    text-align: center;
+  }
+  li {
+    padding: 1rem 0;
   }
 }
