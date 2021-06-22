@@ -99,7 +99,11 @@ const Spot = () => {
           >
             Close
           </button>
-          <Widget id="nEqTbt" style={{ width: "50%" }} className="typeform" />
+          <Widget
+            id="nEqTbt"
+            style={{ width: "90%", height: "90%", margin: "0 auto" }}
+            className="typeform"
+          />
         </div>
         <div className={styles.spotInfo}>
           <section className={styles.gallerySection}>
