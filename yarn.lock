@@ -118,6 +118,18 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@typeform/embed-react@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@typeform/embed-react/-/embed-react-1.0.5.tgz#ef14d72cb5fb95bdb3804231fffa0e4cec5bc44a"
+  integrity sha512-702nn8LXDJ1vJqgMIIvc5Tw2DT5CJxqey/ZSO6ZChEyIkZ/wbcejkMsgp1v2SKKrhB+gIWhi3aUa8Pxl8vaj2Q==
+  dependencies:
+    "@typeform/embed" "^1.10.0"
+
+"@typeform/embed@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@typeform/embed/-/embed-1.10.0.tgz#df3d835045ca971901ce071d18c510e1b4fc3d88"
+  integrity sha512-ibMR0Y8AIXaIw2PpjpiiKbq51C3UwYN2XIFog/1jGLKlZmfphQTmxZq6mN3gMXnWj8kkz3BABdqLzeXZ5hO9yA==
+
 "@types/node@*":
   version "15.12.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.12.1.tgz#9b60797dee1895383a725f828a869c86c6caa5c2"

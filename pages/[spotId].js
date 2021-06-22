@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Widget, PopupButton } from "@typeform/embed-react";
 import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
@@ -89,14 +90,7 @@ const Spot = () => {
           >
             Close
           </button>
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSdd7-87U1DYtqZ5MpIgyFx002T7-oifsXazpYXQjRBVlWHXNA/viewform?embedded=true"
-            width="640"
-            height="738"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-          ></iframe>
+          <Widget id="nEqTbt" style={{ width: "50%" }} className="typeform" />
         </div>
         <div className={styles.spotInfo}>
           <section className={styles.gallerySection}>
