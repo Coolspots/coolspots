@@ -12,6 +12,7 @@
     "bcrypt": "^5.0.1",
     "classnames": "^2.3.1",
     "eslint": "^7.28.0",
+    "firebase": "^8.7.1",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "next": "10.2.3",

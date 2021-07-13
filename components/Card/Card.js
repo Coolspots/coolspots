@@ -2,12 +2,8 @@ import Link from "next/link";
 import styles from "../../styles/Card.module.scss";
 
 const Card = ({ spot }) => {
-  console.log("spot!!", spot);
-
   const renderKeywords = () => {
     if (spot?.keywords) {
-      console.log(spot.keywords);
-
       return spot.keywords[0].split(",").map((keyword) => {
         return (
           <span key={keyword} className={styles.keywordChip}>

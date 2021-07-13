@@ -16,10 +16,26 @@
   .textLogo {
     font-weight: 800;
   }
+
   ul {
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    height: 40px;
+    overflow: hidden;
+    &.open {
+      height: 7rem;
+      transition: height 0.25s ease-in;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 4, 40, 1) 0%,
+        rgba(0, 78, 146, 1) 100%
+      );
+    }
   }
+
   .nameAndBookContainer {
     text-transform: capitalize;
     text-align: center;

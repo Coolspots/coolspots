@@ -22,7 +22,6 @@ const Spot = () => {
         },
       });
       const data = await response.json();
-      console.log("spot by id =>", data);
       setSpotData(data[0]);
       setLoading(false);
     } catch (error) {

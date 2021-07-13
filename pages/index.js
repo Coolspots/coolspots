@@ -20,8 +20,6 @@ export default function Home() {
         },
       });
       const data = await response.json();
-      console.log("main data", data);
-
       setData(data);
 
       setLoading(false);

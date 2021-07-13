@@ -25,9 +25,6 @@ const HeaderCities = ({ data, handleFilterByCity }) => {
       img: "https://image.arrivalguides.com/415x300/02/f2cd31a89b0c335751b11fa8dea987a9.jpg",
     },
   ];
-  // useEffect(() => {
-  //   setCiTyTilesInfo(cities);
-  // }, []);
 
   const handleFilter = (name) => {
     handleFilterByCity(name);
@@ -35,8 +32,6 @@ const HeaderCities = ({ data, handleFilterByCity }) => {
 
   const renderCities = () => {
     return cities?.map((city) => {
-      console.log(city);
-
       return (
         <li
           onClick={() => handleFilter(city.name)}

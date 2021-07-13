@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Navbar from "./components/Navbar/Navbar";
 import SearchBar from "./components/Searchbar/SearchBar";
 import HeaderCities from "./components/HeaderCities/HeaderCities";
@@ -11,7 +13,7 @@ const Header = ({
   spotName,
   handleShowForm,
 }) => {
-  console.log("handleFilterByCity :>> ", handleFilterByCity);
+  const [open, setOpen] = useState(false);
   const shouldShowSearchBar = data?.length > 0;
   return (
     <div className={styles.header}>
