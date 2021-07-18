@@ -5,19 +5,12 @@ import Burger from "./Burger/Burger";
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 
-const NavBar = ({
-  spotName,
-  headerText,
-  handleShowForm,
-  signup,
-  login,
-  currentUser,
-  logout,
-}) => {
+const NavBar = ({ spotName, headerText, currentUser, logout }) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const router = useRouter();
+
   const handleLogout = async (event) => {
     event.preventDefault();
 
@@ -26,10 +19,9 @@ const NavBar = ({
       setLoading(true);
       await logout();
       router.push("/");
-    } catch (error) {
-      console.log(error);
-
-      setError("Failed to logout");
+    } catch (err) {
+      setError(err.message);
+      alert(error);
     }
     setLoading(false);
   };

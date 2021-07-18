@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { useState, useRef } from "react";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../contexts/AuthContext";
+import styles from "../styles/Auth.module.scss";
 
 const auth = () => {
   const { signup, login, currentUser } = useAuth();
@@ -58,75 +60,87 @@ const auth = () => {
   };
 
   return (
-    <Layout>
-      <h2>Auth</h2>
+    <div className={styles.authWrapper}>
+      <div className={styles.topLinkWrapper}>
+        <Link href="/">coolspots</Link>
+      </div>
+      <div className={styles.welcomeWrapper}>
+        <h3>Welcome Back!</h3>
+        <p>Please sign into your account</p>
+      </div>
       {error && <h3>{error}</h3>}
-      {currentUser && <p>{currentUser.email}</p>}
-      <form
-        action=""
-        onSubmit={currentUser ? handleSubmitLogin : handleSubmitSignup}
-      >
-        {isSignup && (
-          <>
-            <label htmlFor="name">
-              <input name="name" type="text" placeholder="name" ref={nameRef} />
-            </label>
-            <label htmlFor="phone">
-              <input
-                name="phone"
-                type="text"
-                placeholder="phone number"
-                ref={phoneRef}
-              />
-            </label>
-          </>
-        )}
-        <label htmlFor="email">
-          <input
-            name="email"
-            type="text"
-            placeholder="email"
-            ref={emailRef}
-            required
-          />
-        </label>
-        <label htmlFor="password">
-          <input
-            name="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="password"
-            ref={passwordRef}
-            required
-          />
-        </label>
-        {isSignup && (
-          <label htmlFor="password-confirm">
+      <div className={styles.formWrapper}>
+        <form
+          action=""
+          onSubmit={currentUser ? handleSubmitLogin : handleSubmitSignup}
+        >
+          {isSignup && (
+            <>
+              <label htmlFor="name">
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="name"
+                  ref={nameRef}
+                />
+              </label>
+              <label htmlFor="phone">
+                <input
+                  name="phone"
+                  type="text"
+                  placeholder="phone number"
+                  ref={phoneRef}
+                />
+              </label>
+            </>
+          )}
+          <label htmlFor="email">
             <input
-              name="password-confirm"
-              type={showPassword ? "text" : "password"}
-              placeholder="confirm password"
-              ref={passwordConfirmationRef}
+              name="email"
+              type="text"
+              placeholder="email"
+              ref={emailRef}
+              required
             />
           </label>
-        )}
-        <button disabled={loading} type="submit">
-          {isSignup ? "Sign up" : "Log in"}
-        </button>
-      </form>
-      <div className="switchModeWrapper">
-        {isSignup ? (
-          <>
-            <p>Already have an account?</p>
-            <button onClick={handleSwitch}>Sign in</button>
-          </>
-        ) : (
-          <>
-            <p>Don't have an account?</p>
-            <button onClick={handleSwitch}>Sign up</button>
-          </>
-        )}
+          <label htmlFor="password">
+            <input
+              name="password"
+              type={showPassword ? "text" : "password"}
+              placeholder="password"
+              ref={passwordRef}
+              required
+            />
+          </label>
+          {isSignup && (
+            <label htmlFor="password-confirm">
+              <input
+                name="password-confirm"
+                type={showPassword ? "text" : "password"}
+                placeholder="confirm password"
+                ref={passwordConfirmationRef}
+              />
+            </label>
+          )}
+          <button className="logBtn" disabled={loading} type="submit">
+            {isSignup ? "Sign up" : "Log in"}
+          </button>
+        </form>
+        <div className={styles.switchModeWrapper}>
+          {isSignup ? (
+            <>
+              <p>Already have an account?</p>
+              <button onClick={handleSwitch}>Sign in</button>
+            </>
+          ) : (
+            <>
+              <p>Don't have an account?</p>
+              <button onClick={handleSwitch}>Sign up</button>
+            </>
+          )}
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
