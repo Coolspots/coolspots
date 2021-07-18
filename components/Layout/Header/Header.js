@@ -12,15 +12,24 @@ const Header = ({
   headerText,
   spotName,
   handleShowForm,
+  signup,
+  login,
+  currentUser,
+  logout,
 }) => {
   const [open, setOpen] = useState(false);
   const shouldShowSearchBar = data?.length > 0;
+
   return (
     <div className={styles.header}>
       <Navbar
         spotName={spotName}
         headerText={headerText}
         handleShowForm={handleShowForm}
+        currentUser={currentUser}
+        logout={logout}
+        signup={signup}
+        login={login}
       />
       {shouldShowSearchBar && (
         <>

@@ -1,13 +1,15 @@
+import classnames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Widget, PopupButton } from "@typeform/embed-react";
 import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
-import classnames from "classnames";
+import { useAuth } from "../contexts/AuthContext";
 
 const Spot = () => {
   const router = useRouter();
+  const { currentUser } = useAuth();
   const [spotData, setSpotData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [shouldShowForm, setShouldShowForm] = useState(false);
@@ -126,7 +128,9 @@ const Spot = () => {
           <button
             className={styles.bookBtn}
             onClick={() => {
-              setShouldShowForm(!shouldShowForm); // esto cambiara
+              currentUser
+                ? setShouldShowForm(!shouldShowForm)
+                : router.push("/auth");
             }}
           >
             Book

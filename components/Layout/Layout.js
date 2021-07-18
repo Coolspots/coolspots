@@ -1,5 +1,6 @@
 import styles from "../../styles/Layout.module.scss";
 import Header from "./Header/Header";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Layout = ({
   children,
@@ -11,10 +12,10 @@ const Layout = ({
   shouldShowForm,
   headerText,
 }) => {
-  console.log("handleFilterByCity :>> ", handleFilterByCity);
   const handleShowForm = () => {
     setShouldShowForm(!shouldShowForm);
   };
+  const { login, logout, signup, currentUser } = useAuth();
   return (
     <>
       <div className={styles.container}>
@@ -25,6 +26,10 @@ const Layout = ({
           spotName={spotName}
           headerText={headerText}
           handleShowForm={handleShowForm}
+          currentUser={currentUser}
+          logout={logout}
+          signup={signup}
+          login={login}
         />
         <main className={styles.main}>{children}</main>
       </div>

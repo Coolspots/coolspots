@@ -32,10 +32,11 @@ export default function Home() {
     getData();
   }, []);
 
+  // TODO rework keywords since now its an array with one element
   const handleSearch = (str) => {
     const result = [];
     data.map((spot) => {
-      if (spot.keywords.toLowerCase().includes(str.toLowerCase())) {
+      if (spot.keywords[0].toLowerCase().includes(str.toLowerCase())) {
         result.push(spot);
       }
     });
@@ -49,8 +50,6 @@ export default function Home() {
         result.push(spot);
       }
     });
-    console.log("results filter city", result);
-
     setFilteredResult(result);
   };
 
