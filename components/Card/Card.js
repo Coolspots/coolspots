@@ -4,9 +4,9 @@ import styles from "../../styles/Card.module.scss";
 const Card = ({ spot }) => {
   const renderKeywords = () => {
     if (spot?.keywords) {
-      return spot.keywords[0].split(",").map((keyword) => {
+      return spot.keywords.split(",").map((keyword) => {
         return (
-          <span key={keyword} className={styles.keywordChip}>
+          <span key={`${keyword + spot.id}`} className={styles.keywordChip}>
             {keyword.trim()}
           </span>
         );
@@ -15,7 +15,7 @@ const Card = ({ spot }) => {
   };
 
   return (
-    <Link href={`/${spot._id}`}>
+    <Link href={`/${spot.id}`}>
       <div key={spot.name} className={styles.card}>
         <div
           className={styles.cardImage}

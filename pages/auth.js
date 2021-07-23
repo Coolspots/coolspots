@@ -23,9 +23,17 @@ const auth = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const isValidEmail = (email) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmitSignup = async (event) => {
     event.preventDefault();
-
+    if (!isValidEmail()) {
+      return setError("Enter a valid email");
+    }
     if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
       return setError("Passwords do not match");
     }
@@ -42,8 +50,9 @@ const auth = () => {
 
   const handleSubmitLogin = async (event) => {
     event.preventDefault();
-    console.log("tryiiing");
-
+    if (!isValidEmail()) {
+      return setError("Enter a valid email");
+    }
     try {
       setError("");
       setLoading(true);
@@ -68,12 +77,8 @@ const auth = () => {
         <h3>Welcome Back!</h3>
         <p>Please sign into your account</p>
       </div>
-      {error && <h3>{error}</h3>}
       <div className={styles.formWrapper}>
-        <form
-          action=""
-          onSubmit={currentUser ? handleSubmitLogin : handleSubmitSignup}
-        >
+        <form action="">
           {isSignup && (
             <>
               <label htmlFor="name">
@@ -97,7 +102,7 @@ const auth = () => {
           <label htmlFor="email">
             <input
               name="email"
-              type="text"
+              type="email"
               placeholder="email"
               ref={emailRef}
               required
@@ -122,9 +127,15 @@ const auth = () => {
               />
             </label>
           )}
-          <button className="logBtn" disabled={loading} type="submit">
+          <button
+            onClick={isSignup ? handleSubmitSignup : handleSubmitLogin}
+            className="logBtn"
+            disabled={loading}
+            type="submit"
+          >
             {isSignup ? "Sign up" : "Log in"}
           </button>
+          {error && <span className={styles.errorMessage}>{error}</span>}
         </form>
         <div className={styles.switchModeWrapper}>
           {isSignup ? (

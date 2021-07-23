@@ -1,12 +1,16 @@
 import { useState, useCallback } from "react";
-import Layout from "../components/Layout/Layout";
+import Link from "next/link";
+import styles from "../styles/AddSpot.module.scss";
+import { db } from "../firebase";
 
 const addSpot = () => {
   const [inputValues, setInputValues] = useState({
     name: "Another incredible Coffee Shop",
+    description: "Amazing place. Come work here. Its delightful",
     keywords: "Barcelona, coffee, terrace",
-    images:
+    images: [
       "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y28lMjB3b3JraW5nJTIwc3BhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    ],
     city: "Barcelona",
     amenities: [
       "Flexible desk",
@@ -32,71 +36,78 @@ const addSpot = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:5000/spots/add", {
-      method: "POST",
-      body: JSON.stringify(inputValues),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((json) => console.log("created spot =>", json))
-      .catch((err) => console.log(err));
+    db.collection("spots")
+      .doc()
+      .set(inputValues)
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
   };
   return (
-    <Layout>
-      <div>
-        <h1>Add your Spot</h1>
-        <form action="POST" onSubmit={handleSubmit}>
-          <label htmlFor="name">name</label>
-          <input
-            type="text"
-            name="name"
-            value={inputValues.name}
-            onChange={handleOnChange}
-          />
-          <label htmlFor="keywords">keywords</label>
-          <input
-            type="text"
-            name="keywords"
-            value={inputValues.keywords}
-            onChange={handleOnChange}
-          />
-          <label htmlFor="images">images</label>
-          <input
-            type="text"
-            name="images"
-            onChange={handleOnChange}
-            value={inputValues.images}
-          />
-          <label htmlFor="city">city</label>
-          <select
-            name="city"
-            value={inputValues.city}
-            onChange={handleOnChange}
-          >
-            <option defaultValue value="barcelona">
-              Barcelona
-            </option>
-            <option value="padova">Padova</option>
-            <option value="valencia">Valencia</option>
-          </select>
-          <label htmlFor="amenities">amenities</label>
-          <input
-            type="text"
-            name="amenities"
-            value={inputValues.amenities}
-            onChange={handleOnChange}
-          />
-          <label htmlFor="priceFrom">priceFrom</label>
-          <input
-            type="text"
-            name="priceFrom"
-            value={inputValues.priceFrom}
-            onChange={handleOnChange}
-          />
-          <input type="submit" />
-        </form>
+    <div className="authWrapper">
+      <div className={styles.topLinkWrapper}>
+        <Link href="/">coolspots</Link>
       </div>
-    </Layout>
+      <h1 className={styles.addSpotTitle}>Add your Spot</h1>
+      <form action="POST" onSubmit={handleSubmit}>
+        <label htmlFor="name">name</label>
+        <input
+          type="text"
+          name="name"
+          value={inputValues.name}
+          onChange={handleOnChange}
+        />
+        <label htmlFor="description">description</label>
+        <input
+          type="text"
+          name="description"
+          value={inputValues.description}
+          onChange={handleOnChange}
+        />
+        <label htmlFor="keywords">keywords</label>
+        <input
+          type="text"
+          name="keywords"
+          value={inputValues.keywords}
+          onChange={handleOnChange}
+        />
+        <label htmlFor="images">images</label>
+        <input
+          type="text"
+          name="images"
+          onChange={handleOnChange}
+          value={inputValues.images}
+        />
+        <label htmlFor="city">city</label>
+        <select name="city" value={inputValues.city} onChange={handleOnChange}>
+          <option defaultValue value="barcelona">
+            Barcelona
+          </option>
+          <option value="padova">Padova</option>
+          <option value="valencia">Valencia</option>
+        </select>
+        <label htmlFor="amenities">amenities</label>
+        <input
+          type="text"
+          name="amenities"
+          value={inputValues.amenities}
+          onChange={handleOnChange}
+        />
+        <label htmlFor="priceFrom">priceFrom</label>
+        <input
+          type="text"
+          name="priceFrom"
+          value={inputValues.priceFrom}
+          onChange={handleOnChange}
+        />
+        <button className="logBtn" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

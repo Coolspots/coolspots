@@ -1,42 +1,58 @@
 import { useEffect, useState } from "react";
+import { db } from "../firebase";
+
 import Head from "next/head";
 import Card from "../components/Card/Card";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/Page.module.scss";
 import Layout from "../components/Layout/Layout";
+import { useSpots } from "./api/hello";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const getData = async () => {
-    try {
-      const response = await fetch("http://127.0.0.1:5000/spots", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+  // const getSpots = async () => {
+  //   try {
+  //     const response = await fetch("http://127.0.0.1:5000/spots", {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     setData(data);
+
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log("oh no!! there was en error!", error);
+  //   }
+  // };
+
+  useEffect(async () => {
+    const spots = [];
+    db.collection("spots")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          spots.push({ ...doc.data(), id: doc.id });
+        });
+      })
+      .then(() => {
+        setData(spots);
+        setLoading(false);
+        console.log("mi data :>> ", data);
       });
-      const data = await response.json();
-      setData(data);
-
-      setLoading(false);
-    } catch (error) {
-      console.log("oh no!! there was en error!", error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
   }, []);
 
   // TODO rework keywords since now its an array with one element
   const handleSearch = (str) => {
     const result = [];
     data.map((spot) => {
-      if (spot.keywords[0].toLowerCase().includes(str.toLowerCase())) {
+      if (spot.keywords.toLowerCase().includes(str.toLowerCase())) {
         result.push(spot);
       }
     });
@@ -62,8 +78,8 @@ export default function Home() {
     if (Array.isArray(filteredResult) && !filteredResult.length) {
       return <p>No spots matching your search :(</p>;
     }
-    return data.map((spot) => {
-      return <Card key={spot._id} spot={spot} />;
+    return data?.map((spot) => {
+      return <Card key={spot.id} spot={spot} />;
     });
   };
 

@@ -6,6 +6,7 @@ import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
 import { useAuth } from "../contexts/AuthContext";
+import { db } from "../firebase";
 
 const Spot = () => {
   const router = useRouter();
@@ -15,25 +16,41 @@ const Spot = () => {
   const [shouldShowForm, setShouldShowForm] = useState(false);
   const { spotId } = router.query;
 
-  const getSpot = async () => {
-    try {
-      const response = await fetch(`http://localhost:5000/spots/${spotId}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
-      const data = await response.json();
-      setSpotData(data[0]);
-      setLoading(false);
-    } catch (error) {
-      console.log("oh no!! there was en error!", error);
-    }
-  };
+  // const getSpot = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:5000/spots/${spotId}`, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Accept: "application/json",
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     setSpotData(data[0]);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.log("oh no!! there was en error!", error);
+  //   }
+  // };
 
   useEffect(() => {
     if (!router.isReady) return;
-    getSpot();
+    const docRef = db.collection("spots").doc(spotId);
+
+    docRef
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          console.log("Document data:", doc.data());
+          setSpotData(doc.data());
+          setLoading(false);
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      });
   }, [router.isReady]);
 
   const renderGallery = () => {
