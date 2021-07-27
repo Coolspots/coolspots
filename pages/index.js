@@ -27,7 +27,6 @@ export default function Home() {
       .then(() => {
         setData(spots);
         setLoading(false);
-        console.log(data);
       });
   }, []);
 

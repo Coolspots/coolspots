@@ -22,11 +22,10 @@ const Layout = ({
 
   const handleClickOverlay = (e) => {
     e.stopPropagation();
-    console.log(e.target);
+    setOpen((prevState) => !prevState);
   };
 
   const handleOpenDropdown = () => {
-    console.log(open);
     setOpen((prevState) => !prevState);
   };
 
@@ -50,6 +49,7 @@ const Layout = ({
           signup={signup}
           login={login}
           handleOpenDropdown={handleOpenDropdown}
+          open={open}
         />
         <main className={styles.main}>{children}</main>
       </div>

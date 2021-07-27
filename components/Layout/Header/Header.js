@@ -8,12 +8,14 @@ const Header = ({
   handleSearch,
   handleFilterByCity,
   headerText,
+  handleOpenDropdown,
   spotName,
   handleShowForm,
   signup,
   login,
   currentUser,
   logout,
+  open,
 }) => {
   const shouldShowSearchBar = data?.length > 0;
 
@@ -27,6 +29,8 @@ const Header = ({
         logout={logout}
         signup={signup}
         login={login}
+        handleOpenDropdown={handleOpenDropdown}
+        open={open}
       />
       {shouldShowSearchBar && (
         <>

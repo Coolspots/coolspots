@@ -11,8 +11,9 @@ const NavBar = ({
   currentUser,
   logout,
   handleShowForm,
+  open,
+  handleOpenDropdown,
 }) => {
-  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -32,29 +33,16 @@ const NavBar = ({
     setLoading(false);
   };
 
-  const handleClickOverlay = (e) => {
-    e.stopPropagation();
-    console.log(e.target);
-  };
-
   return (
     <>
-      <div
-        className={classnames({ [styles.overlay]: open })}
-        onClick={handleClickOverlay}
-      ></div>
       <nav className={styles.navbar}>
         <ul className={classnames({ [styles.open]: open })}>
           <div className={styles.logoAndBurgerWrapper}>
             <li className={styles.textLogo}>
               <Link href="/">coolspots</Link>
             </li>
-            <li
-              onClick={() => {
-                setOpen(!open);
-              }}
-            >
-              <Burger open={open} />
+            <li>
+              <Burger handleOpenDropdown={handleOpenDropdown} open={open} />
             </li>
           </div>
           <div className={styles.dropdownLinks}>
@@ -83,7 +71,11 @@ const NavBar = ({
             </button>
           </div>
         )) || (
-          <div className={classnames(styles.howItWorksHeaderText)}>
+          <div
+            className={classnames(styles.howItWorksHeaderText, {
+              [styles.open]: open,
+            })}
+          >
             <p>{headerText}</p>
           </div>
         )}
