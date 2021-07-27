@@ -13,26 +13,9 @@ export default function Home() {
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // const getSpots = async () => {
-  //   try {
-  //     const response = await fetch("http://127.0.0.1:5000/spots", {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //     });
-  //     const data = await response.json();
-  //     setData(data);
-
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log("oh no!! there was en error!", error);
-  //   }
-  // };
-
-  useEffect(async () => {
+  useEffect(() => {
     const spots = [];
+    // TODO consider using onSnapshot instead of get/then => thenetninja firebase #13
     db.collection("spots")
       .get()
       .then((querySnapshot) => {
@@ -44,7 +27,7 @@ export default function Home() {
       .then(() => {
         setData(spots);
         setLoading(false);
-        console.log("mi data :>> ", data);
+        console.log(data);
       });
   }, []);
 
@@ -76,7 +59,9 @@ export default function Home() {
       });
     }
     if (Array.isArray(filteredResult) && !filteredResult.length) {
-      return <p>No spots matching your search :(</p>;
+      return (
+        <p className={styles.noResultText}>No spots matching your search :(</p>
+      );
     }
     return data?.map((spot) => {
       return <Card key={spot.id} spot={spot} />;

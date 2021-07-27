@@ -5,7 +5,13 @@ import Burger from "./Burger/Burger";
 import Link from "next/link";
 import styles from "./Navbar.module.scss";
 
-const NavBar = ({ spotName, headerText, currentUser, logout }) => {
+const NavBar = ({
+  spotName,
+  headerText,
+  currentUser,
+  logout,
+  handleShowForm,
+}) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -25,9 +31,18 @@ const NavBar = ({ spotName, headerText, currentUser, logout }) => {
     }
     setLoading(false);
   };
+
+  const handleClickOverlay = (e) => {
+    e.stopPropagation();
+    console.log(e.target);
+  };
+
   return (
     <>
-      <div className={classnames({ [styles.overlay]: open })}></div>
+      <div
+        className={classnames({ [styles.overlay]: open })}
+        onClick={handleClickOverlay}
+      ></div>
       <nav className={styles.navbar}>
         <ul className={classnames({ [styles.open]: open })}>
           <div className={styles.logoAndBurgerWrapper}>
@@ -39,7 +54,7 @@ const NavBar = ({ spotName, headerText, currentUser, logout }) => {
                 setOpen(!open);
               }}
             >
-              <Burger />
+              <Burger open={open} />
             </li>
           </div>
           <div className={styles.dropdownLinks}>
@@ -61,21 +76,18 @@ const NavBar = ({ spotName, headerText, currentUser, logout }) => {
             <button
               className={styles.bookBtn}
               onClick={() => {
-                currentUser
-                  ? setShouldShowForm(!shouldShowForm)
-                  : router.push("/auth");
+                currentUser ? handleShowForm() : router.push("/auth");
               }}
             >
               Book
             </button>
           </div>
         )) || (
-          <div className={styles.howItWorksHeaderText}>
+          <div className={classnames(styles.howItWorksHeaderText)}>
             <p>{headerText}</p>
           </div>
         )}
       </nav>
-      <span></span>
     </>
   );
 };

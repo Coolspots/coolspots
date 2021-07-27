@@ -9,8 +9,11 @@
     }
   }
   h1 {
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 42px;
+    }
     padding: 1.5rem;
-    font-size: 42px;
+    font-size: 24px;
     font-weight: 400;
   }
   .cardWrapper {
@@ -35,6 +38,7 @@
   }
   .section {
     padding: 2rem;
+    padding-bottom: 0;
     text-align: start;
     @media (min-width: $breakpoint-tablet) {
       text-align: center;
@@ -42,20 +46,21 @@
     .sectionTitle {
       text-align: center;
     }
-    h3 {
-      padding-bottom: 1.5rem;
-    }
     p {
       padding: 1rem 0;
+      font-size: 1rem;
     }
+  }
+  h3 {
+    padding-bottom: 1.5rem;
+  }
+  h4 {
+    font-size: 1.5rem;
   }
 }
 
 .benefitList {
   @media (min-width: $breakpoint-tablet) {
     text-align: center;
-  }
-  li {
-    padding: 1rem 0;
   }
 }

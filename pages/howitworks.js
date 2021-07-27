@@ -4,11 +4,11 @@ import Image from "next/image";
 
 const howItWorks = () => {
   return (
-    <div className={styles.howItWorksPage}>
-      <Layout
-        headerText="Social, comfy workspaces with discounts for remote workers, nomads,
-            entrepreneurs and students"
-      >
+    <Layout
+      headerText="Social, comfy workspaces with discounts for remote workers, nomads,
+        entrepreneurs and students"
+    >
+      <div className={styles.howItWorksPage}>
         <h1>What can I book with Coolspots?</h1>
         <div className={styles.cardWrapper}>
           <div className={styles.card}>
@@ -42,11 +42,11 @@ const howItWorks = () => {
         <section className={styles.section}>
           <h3 className={styles.sectionTitle}>Benefits</h3>
           <div>
-            <h3>If you're a cafe owner</h3>
+            <h4>If you're a cafe owner</h4>
             <p>Fill your tables with new customers from our community</p>
           </div>
           <div>
-            <h3>If you're a digital nomad</h3>
+            <h4>If you're a digital nomad</h4>
             <p>Fill your tables with new customers from our community</p>
           </div>
         </section>
@@ -73,8 +73,8 @@ const howItWorks = () => {
             </ul>
           </div>
         </section>
-      </Layout>
-    </div>
+      </div>
+    </Layout>
   );
 };
 

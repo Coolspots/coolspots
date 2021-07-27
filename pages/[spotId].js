@@ -1,12 +1,13 @@
 import classnames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Widget, PopupButton } from "@typeform/embed-react";
+// import { Widget, PopupButton } from "@typeform/embed-react";
 import Layout from "../components/Layout/Layout";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";
+import HeaderCities from "../components/Layout/Header/components/HeaderCities/HeaderCities";
 
 const Spot = () => {
   const router = useRouter();
@@ -102,17 +103,25 @@ const Spot = () => {
           })}
         >
           <button
+            className={styles.closeFormBtn}
             onClick={() => {
-              setShouldShowForm(!shouldShowForm);
+              setShouldShowForm((prevState) => !prevState);
             }}
           >
             Close
           </button>
-          <Widget
-            id="nEqTbt"
-            style={{ width: "90%", height: "90%", margin: "0 auto" }}
-            className="typeform"
-          />
+          <iframe
+            className="airtable-embed airtable"
+            src="https://airtable.com/embed/shr95YVBnPuPPKbRB?backgroundColor=blue"
+            onmousewheel=""
+            style={{
+              background: "transparent",
+              border: "1px solid #ccc",
+              frameborder: "0",
+              width: "100%",
+              height: "100%",
+            }}
+          ></iframe>
         </div>
         <div className={styles.spotInfo}>
           <section className={styles.gallerySection}>

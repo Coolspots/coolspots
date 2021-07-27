@@ -12,9 +12,7 @@ export const getSpots = () => {
     })
     .then(() => {
       setData(data);
-      console.log("setdata :>> ", data);
     });
 
-  console.log("data :>> ", data);
   return data;
 };

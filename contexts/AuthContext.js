@@ -12,6 +12,7 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function signup(email, password) {
+    // TODO if we want to create a collection of users watch thenetninja auth #16
     return auth.createUserWithEmailAndPassword(email, password);
   }
 

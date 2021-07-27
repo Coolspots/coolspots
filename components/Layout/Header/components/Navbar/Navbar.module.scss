@@ -67,12 +67,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 4.5rem;
 
     .spotName {
       font-weight: 400;
-      font-size: 3rem;
-      line-height: 77px;
+      font-size: 2rem;
+      padding: 1.5rem 1.5rem;
     }
   }
 }
@@ -98,8 +97,14 @@
     padding-bottom: 0;
   }
   p {
-    font-size: 1.5rem;
+    @media (min-width: $breakpoint-mobile) {
+      font-size: 1.5rem;
+    }
+
     padding-top: 3rem;
+  }
+  &.open {
+    opacity: 0.5;
   }
 }
 

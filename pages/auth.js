@@ -31,7 +31,7 @@ const auth = () => {
 
   const handleSubmitSignup = async (event) => {
     event.preventDefault();
-    if (!isValidEmail()) {
+    if (!isValidEmail(emailRef.current.value)) {
       return setError("Enter a valid email");
     }
     if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
@@ -50,7 +50,7 @@ const auth = () => {
 
   const handleSubmitLogin = async (event) => {
     event.preventDefault();
-    if (!isValidEmail()) {
+    if (!isValidEmail(emailRef.current.value)) {
       return setError("Enter a valid email");
     }
     try {
