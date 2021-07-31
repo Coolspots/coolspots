@@ -7,42 +7,49 @@
   flex-direction: column-reverse;
   border: 1px solid #f2f2f2;
   height: 373px;
-  .infoWrapper {
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    h3 {
-      text-transform: capitalize;
-    }
-    @media (min-width: $breakpoint-mobile) {
-      padding-left: 1rem;
-      height: 100%;
-      width: 55%;
-      justify-content: space-between;
-    }
-  }
-  .cardImage {
-    background-size: cover;
-    background-position: center;
-    height: 50%;
-    border-radius: 5px;
-    @media (min-width: $breakpoint-mobile) {
-      width: 45%;
-      height: 100%;
-    }
-  }
+  cursor: pointer;
+
   @media (min-width: $breakpoint-mobile) {
     flex-direction: row;
-    height: 190px;
-    width: 660px;
-    margin: 0 auto;
+    height: 210px;
+    width: 100%;
+    max-width: 660px;
+    margin: 1rem auto;
+    padding: 1rem;
   }
+
   .priceFrom {
     padding-bottom: 1rem;
     span {
       font-size: 0.8rem;
     }
+  }
+}
+
+.cardImage {
+  background-size: cover;
+  background-position: center;
+  height: 50%;
+  border-radius: 5px;
+  @media (min-width: $breakpoint-mobile) {
+    width: 45%;
+    height: 100%;
+  }
+}
+
+.infoWrapper {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h3 {
+    text-transform: capitalize;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    padding-left: 1rem;
+    height: 100%;
+    width: 55%;
+    justify-content: space-between;
   }
 }
 

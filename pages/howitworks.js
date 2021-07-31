@@ -2,7 +2,7 @@ import Layout from "../components/Layout/Layout";
 import styles from "../styles/HowItWorks.module.scss";
 import Image from "next/image";
 
-const howItWorks = () => {
+const HowItWorks = () => {
   return (
     <Layout
       headerText="Social, comfy workspaces with discounts for remote workers, nomads,
@@ -78,4 +78,4 @@ const howItWorks = () => {
   );
 };
 
-export default howItWorks;
+export default HowItWorks;

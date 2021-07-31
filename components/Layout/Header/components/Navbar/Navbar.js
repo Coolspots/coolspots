@@ -46,7 +46,7 @@ const NavBar = ({
             </li>
           </div>
           <div className={styles.dropdownLinks}>
-            <Link href="/howitworks">How it works</Link>
+            <Link href="/HowItWorks">How it works</Link>
             {currentUser ? (
               <button className={styles.logBtn} onClick={handleLogout}>
                 Logout

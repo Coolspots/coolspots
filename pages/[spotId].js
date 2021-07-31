@@ -7,7 +7,6 @@ import Loading from "../components/Loading/Loading";
 import styles from "../styles/DetailPage.module.scss";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase";
-import HeaderCities from "../components/Layout/Header/components/HeaderCities/HeaderCities";
 
 const Spot = () => {
   const router = useRouter();
@@ -16,22 +15,6 @@ const Spot = () => {
   const [loading, setLoading] = useState(true);
   const [shouldShowForm, setShouldShowForm] = useState(false);
   const { spotId } = router.query;
-
-  // const getSpot = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:5000/spots/${spotId}`, {
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //     });
-  //     const data = await response.json();
-  //     setSpotData(data[0]);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     console.log("oh no!! there was en error!", error);
-  //   }
-  // };
 
   useEffect(() => {
     if (!router.isReady) return;

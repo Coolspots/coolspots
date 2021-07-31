@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
+import { useRouter } from "next/router";
 
 import Head from "next/head";
 import Card from "../components/Card/Card";
 import Loading from "../components/Loading/Loading";
 import styles from "../styles/Page.module.scss";
 import Layout from "../components/Layout/Layout";
-import { useSpots } from "./api/hello";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { currentUser } = useAuth();
+  const router = useRouter();
 
+  if (!currentUser) {
+    router.push("/Landing");
+  }
   useEffect(() => {
     const spots = [];
     // TODO consider using onSnapshot instead of get/then => thenetninja firebase #13
