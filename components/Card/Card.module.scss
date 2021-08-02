@@ -15,7 +15,7 @@
     h3 {
       text-transform: capitalize;
     }
-    @media (min-width: $breakpoint-mobile) {
+    @media (min-width: $breakpoint-desktop) {
       padding-left: 1rem;
       height: 100%;
       width: 55%;
@@ -27,12 +27,12 @@
     background-position: center;
     height: 50%;
     border-radius: 5px;
-    @media (min-width: $breakpoint-mobile) {
+    @media (min-width: $breakpoint-desktop) {
       width: 45%;
       height: 100%;
     }
   }
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-desktop) {
     flex-direction: row;
     height: 190px;
     width: 660px;
@@ -51,7 +51,7 @@
   display: flex;
   flex-flow: wrap;
   align-content: flex-start;
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-desktop) {
     padding-bottom: 2.5rem;
   }
   .keywordChip {

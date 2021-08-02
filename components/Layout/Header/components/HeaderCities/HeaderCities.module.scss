@@ -1,16 +1,8 @@
 @import "../../../../../styles/variables.scss";
 
-// .headerCities {
-//   overflow: hidden;
-//   display: none;
-//   @media (min-width: $breakpoint-mobile) {
-//     display: flex;
-//   }
-// }
-
 .headerCities {
   display: none;
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-desktop) {
     display: flex;
   }
   justify-content: center;

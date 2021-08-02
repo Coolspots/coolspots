@@ -5,7 +5,7 @@
   width: 280px;
   margin: 0 auto;
   padding-bottom: 2rem;
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-desktop) {
     height: auto;
   }
   input {
@@ -22,7 +22,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 14px;
-    @media (max-width: $breakpoint-mobile) {
+    @media (max-width: $breakpoint-desktop) {
       &:focus {
         outline: none;
       }

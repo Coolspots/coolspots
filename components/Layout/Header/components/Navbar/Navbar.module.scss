@@ -90,13 +90,13 @@
   padding: 0 3.5rem;
   line-height: 2.5rem;
   text-align: center;
-  @media (min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-desktop) {
     padding: 3rem 0 0;
   }
   p {
     font-size: 1.5rem;
     padding-top: 3rem;
-    @media (min-width: $breakpoint-mobile) {
+    @media (min-width: $breakpoint-desktop) {
       font-size: 1.5rem;
       padding: 3rem;
     }
