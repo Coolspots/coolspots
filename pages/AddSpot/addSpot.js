@@ -103,7 +103,7 @@ const AddSpot = () => {
           value={inputValues.priceFrom}
           onChange={handleOnChange}
         />
-        <button className="logBtn" type="submit">
+        <button className="mainBtn" type="submit">
           Submit
         </button>
       </form>

@@ -129,7 +129,7 @@ const auth = () => {
             )}
             <button
               onClick={isSignup ? handleSubmitSignup : handleSubmitLogin}
-              className="logBtn"
+              className="mainBtn"
               disabled={loading}
               type="submit"
             >

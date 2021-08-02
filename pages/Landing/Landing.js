@@ -18,7 +18,7 @@ const Landing = () => {
             </li>
             <li>
               <Link href="/auth">
-                <button className="logBtn">Sign up</button>
+                <button className="mainBtn">Sign up</button>
               </Link>
             </li>
           </div>
@@ -32,7 +32,7 @@ const Landing = () => {
             single subscription
           </p>
           <Link href="/auth">
-            <button className="logBtn">Get Started</button>
+            <button className="mainBtn">Get Started</button>
           </Link>
         </div>
         <div className={styles.imageWrapper}>
