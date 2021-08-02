@@ -17,7 +17,7 @@ export default function Home() {
   const router = useRouter();
 
   if (!currentUser) {
-    router.push("/welcome");
+    router.push("/Landing");
   }
   useEffect(() => {
     const spots = [];
