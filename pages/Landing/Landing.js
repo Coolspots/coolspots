@@ -31,7 +31,9 @@ const Landing = () => {
             Book coffeeshops and co-working spaces all over the world with a
             single subscription
           </p>
-          <button className="logBtn">Get Started</button>
+          <Link href="/auth">
+            <button className="logBtn">Get Started</button>
+          </Link>
         </div>
         <div className={styles.imageWrapper}>
           <img src="/landing/landing-main.png" alt="landing-1" />
