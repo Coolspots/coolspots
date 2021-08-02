@@ -1,9 +1,9 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import styles from "../styles/AddSpot.module.scss";
-import { db } from "../firebase";
+import styles from "./AddSpot.module.scss";
+import { db } from "../../firebase";
 
-const addSpot = () => {
+const AddSpot = () => {
   const [inputValues, setInputValues] = useState({
     name: "Another incredible Coffee Shop",
     description: "Amazing place. Come work here. Its delightful",
@@ -120,4 +120,4 @@ const addSpot = () => {
 //   reviews: [{ author: String, body: String }],
 //   createdAt: { type: Date, default: new Date() },
 
-export default addSpot;
+export default AddSpot;

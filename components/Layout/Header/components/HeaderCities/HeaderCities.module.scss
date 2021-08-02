@@ -9,7 +9,6 @@
 // }
 
 .headerCities {
-  overflow: hidden;
   display: none;
   @media (min-width: $breakpoint-mobile) {
     display: flex;

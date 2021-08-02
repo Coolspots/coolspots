@@ -1,5 +1,5 @@
-import Layout from "../components/Layout/Layout";
-import styles from "../styles/HowItWorks.module.scss";
+import Layout from "../../components/Layout/Layout";
+import styles from "./HowItWorks.module.scss";
 import Image from "next/image";
 
 const HowItWorks = () => {

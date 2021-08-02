@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import { useRouter } from "next/router";
 
 import Head from "next/head";
-import Card from "../components/Card/Card";
-import Loading from "../components/Loading/Loading";
-import styles from "../styles/Page.module.scss";
-import Layout from "../components/Layout/Layout";
-import { useAuth } from "../contexts/AuthContext";
+import Card from "../../components/Card/Card";
+import Loading from "../../components/Loading/Loading";
+import styles from "./Home.module.scss";
+import Layout from "../../components/Layout/Layout";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -17,7 +17,7 @@ export default function Home() {
   const router = useRouter();
 
   if (!currentUser) {
-    router.push("/Landing");
+    router.push("/welcome");
   }
   useEffect(() => {
     const spots = [];
@@ -60,7 +60,7 @@ export default function Home() {
   const renderCards = () => {
     if (filteredResult?.length) {
       return filteredResult.map((spot) => {
-        return <Card key={spot._id} spot={spot} />;
+        return <Card key={spot.id} spot={spot} />;
       });
     }
     if (Array.isArray(filteredResult) && !filteredResult.length) {

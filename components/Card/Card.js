@@ -15,7 +15,7 @@ const Card = ({ spot }) => {
   };
 
   return (
-    <Link href={`/${spot.id}`}>
+    <Link href={`/DetailPage/${spot.id}`}>
       <div key={spot.name} className={styles.card}>
         <div
           className={styles.cardImage}

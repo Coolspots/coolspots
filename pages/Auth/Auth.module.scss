@@ -1,11 +1,10 @@
-@import "./variables.scss";
+@import "../../styles/variables.scss";
 
 .authWrapper {
   color: white;
   min-height: 100vh;
   /* mobile viewport bug fix */
   min-height: -webkit-fill-available;
-  max-width: 800px;
   margin: 0 auto;
   background: linear-gradient(
       90deg,
