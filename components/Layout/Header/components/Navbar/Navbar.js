@@ -48,12 +48,12 @@ const NavBar = ({
           <div className={styles.dropdownLinks}>
             <Link href="/HowItWorks">How it works</Link>
             {currentUser ? (
-              <button className={styles.main - btn} onClick={handleLogout}>
+              <button className="mainBtn" onClick={handleLogout}>
                 Logout
               </button>
             ) : (
               <Link className={styles.logoutBtn} href="/auth">
-                <button className={styles.main - btn}>Login</button>
+                <button className="mainBtn">Login</button>
               </Link>
             )}
           </div>

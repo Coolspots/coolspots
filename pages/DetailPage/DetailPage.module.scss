@@ -79,7 +79,11 @@
 }
 
 .bookBtn {
-  width: 140px;
+  width: 180px;
+  background: $main-blue;
+  padding: 1rem 1.5rem;
+  border-radius: 2px;
+  color: white;
 }
 
 .bookBtnBottomWrapper {
