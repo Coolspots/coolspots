@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
@@ -14,7 +15,10 @@ const Spot = () => {
   const [loading, setLoading] = useState(true);
   const [shouldShowForm, setShouldShowForm] = useState(false);
   const { spotId } = router.query;
-
+  const canEdit = currentUser?.uid === spotData?.author;
+  console.log("canEdit", canEdit);
+  console.log("currentUser.uid :>> ", currentUser.uid);
+  console.log("spotData.author :>> ", spotData.author);
   useEffect(() => {
     if (!router.isReady) return;
     const docRef = db.collection("spots").doc(spotId);
@@ -105,6 +109,7 @@ const Spot = () => {
             }}
           ></iframe>
         </div>
+        {canEdit && <button className="mainBtn">Edit</button>}
         <div className={styles.spotInfo}>
           <section className={styles.gallerySection}>
             <h3>Gallery</h3>

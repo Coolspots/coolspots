@@ -2,8 +2,11 @@ import { useState, useCallback } from "react";
 import Link from "next/link";
 import styles from "./AddSpot.module.scss";
 import { db } from "../../firebase";
+import { useAuth } from "../../contexts/AuthContext";
 
 const AddSpot = () => {
+  const { currentUser } = useAuth();
+  console.log("currentUser", currentUser);
   const [inputValues, setInputValues] = useState({
     name: "Another incredible Coffee Shop",
     description: "Amazing place. Come work here. Its delightful",
@@ -38,7 +41,7 @@ const AddSpot = () => {
     event.preventDefault();
     db.collection("spots")
       .doc()
-      .set(inputValues)
+      .set({ ...inputValues, author: "pepe" }) // add author to the fields {...inpitValues, author: something}
       .then(() => {
         console.log("Document successfully written!");
       })
