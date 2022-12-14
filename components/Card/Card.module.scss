@@ -1,4 +1,4 @@
-@import "../../../styles/variables.scss";
+@import "../../styles/variables.scss";
 
 .card {
   display: flex;
@@ -44,23 +44,25 @@
       font-size: 0.8rem;
     }
   }
-}
 
-.keywordsWrapper {
-  height: 100%;
-  display: flex;
-  flex-flow: wrap;
-  align-content: flex-start;
-  @media (min-width: $breakpoint-desktop) {
-    padding-bottom: 2.5rem;
-  }
-  .keywordChip {
-    color: $main-blue;
-    border: 1px solid $main-blue;
-    padding: 8px;
-    font-size: 9px;
-    border-radius: 5px;
-    margin: 0.3rem 0.3rem 0 0;
-    height: 30px;
+  .tagsWrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: wrap;
+    align-content: flex-start;
+
+    @media (min-width: $breakpoint-desktop) {
+      padding-bottom: 2.5rem;
+    }
+
+    .tagChip {
+      color: $main-blue;
+      border: 1px solid $main-blue;
+      padding: 8px;
+      font-size: 9px;
+      border-radius: 5px;
+      margin: 0.3rem 0.3rem 0 0;
+      height: 30px;
+    }
   }
 }

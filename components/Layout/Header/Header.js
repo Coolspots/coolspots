@@ -4,7 +4,7 @@ import HeaderCities from "./components/HeaderCities/HeaderCities";
 import styles from "./Header.module.scss";
 
 const Header = ({
-  data,
+  showHeader,
   handleSearch,
   handleFilterByCity,
   headerText,
@@ -17,8 +17,6 @@ const Header = ({
   logout,
   open,
 }) => {
-  const shouldShowSearchBar = data?.length > 0;
-
   return (
     <div className={styles.header}>
       <Navbar
@@ -32,10 +30,10 @@ const Header = ({
         handleOpenDropdown={handleOpenDropdown}
         open={open}
       />
-      {shouldShowSearchBar && (
+      {showHeader && (
         <>
           <SearchBar handleSearch={handleSearch} />
-          <HeaderCities data={data} handleFilterByCity={handleFilterByCity} />
+          <HeaderCities handleFilterByCity={handleFilterByCity} />
         </>
       )}
     </div>

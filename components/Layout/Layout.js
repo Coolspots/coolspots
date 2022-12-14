@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const Layout = ({
   children,
-  data,
+  areSpotsLoaded,
   handleSearch,
   handleFilterByCity,
   spotName,
@@ -38,7 +38,7 @@ const Layout = ({
       ></div>
       <div className={styles.container}>
         <Header
-          data={data}
+          showHeader={areSpotsLoaded}
           handleSearch={handleSearch}
           handleFilterByCity={handleFilterByCity}
           spotName={spotName}
