@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { db } from "../../firebase";
 import { useRouter } from "next/router";
 
 import Head from "next/head";
@@ -19,31 +18,20 @@ export default function Home() {
   if (!currentUser) {
     router.push("/Landing");
   }
-  useEffect(async () => {
-    // const spots = [];
-    // // TODO consider using onSnapshot instead of get/then => thenetninja firebase #13
-    // db.collection("spots")
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       // doc.data() is never undefined for query doc snapshots
-    //       spots.push({ ...doc.data(), id: doc.id });
-    //     });
-    //   })
-    //   .then(() => {
-    //     setData(spots);
-    //     setLoading(false);
-    //   });
 
-    fetch(
-      `https://api.airtable.com/v0/${process.env.NEXT_PUBLIC_AIRTABLE_BASE}?api_key=${process.env.NEXT_PUBLIC_AIRTABLE_KEY}`
-    )
+  useEffect(() => {
+    fetch("./api/spots")
       .then((res) => res.json())
       .then((data) => {
-        setData(data.records);
+        console.log(data);
+        setData(data);
         setLoading(false);
       });
   }, []);
+
+  if (loading || !data.length) {
+    return <Loading />;
+  }
 
   // TODO rework keywords since now its an array with one element
   const handleSearch = (str) => {
@@ -125,10 +113,6 @@ export default function Home() {
       );
     });
   };
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <Layout

@@ -3,8 +3,6 @@ import classnames from "classnames";
 import styles from "./HeaderCities.module.scss";
 
 const HeaderCities = ({ handleFilterByCity }) => {
-  // const [cityTilesInfo, setCiTyTilesInfo] = useState([]);
-  // cities is a temporary array until we decide how to manage the cities we work with
   const cities = [
     {
       name: "Padova",
