@@ -6,6 +6,6 @@ export default async (_req, res) => {
     const minfiedItems = minifyItems(records);
     res.status(200).json(minfiedItems);
   } catch (error) {
-    res.status(500).json({ msg: "Something went wrong! 😕" });
+    res.status(500).json({ error: `${error} 😕` });
   }
 };
