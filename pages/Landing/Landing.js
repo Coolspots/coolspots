@@ -1,5 +1,5 @@
-import styles from "./Landing.module.scss";
-import Link from "next/link";
+import styles from './Landing.module.scss';
+import Link from 'next/link';
 
 const Landing = () => {
   return (

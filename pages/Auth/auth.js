@@ -1,14 +1,14 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { useState, useRef } from "react";
-import { useAuth } from "../../contexts/AuthContext";
-import styles from "./Auth.module.scss";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useState, useRef } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import styles from './Auth.module.scss';
 
 const auth = () => {
-  const { signup, login } = useAuth();
+  const { signup, login, googleAuth, currentUser } = useAuth();
   const [isSignup, setIsSignup] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const nameRef = useRef();
@@ -17,6 +17,10 @@ const auth = () => {
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
   const router = useRouter();
+
+  if (currentUser) {
+    router.push('/');
+  }
 
   const handleShowPassword = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -31,18 +35,17 @@ const auth = () => {
   const handleSubmitSignup = async (event) => {
     event.preventDefault();
     if (!isValidEmail(emailRef.current.value)) {
-      return setError("Enter a valid email");
+      return setError('Enter a valid email');
     }
     if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
-      return setError("Passwords do not match");
+      return setError('Passwords do not match');
     }
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      router.push("/");
     } catch (error) {
-      setError("Failed to create an account");
+      setError('Failed to create an account');
     }
     setLoading(false);
   };
@@ -50,13 +53,12 @@ const auth = () => {
   const handleSubmitLogin = async (event) => {
     event.preventDefault();
     if (!isValidEmail(emailRef.current.value)) {
-      return setError("Enter a valid email");
+      return setError('Enter a valid email');
     }
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      router.push("/");
     } catch (error) {
       setError(error.message);
     }
@@ -111,7 +113,7 @@ const auth = () => {
             <label htmlFor="password">
               <input
                 name="password"
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 placeholder="password"
                 ref={passwordRef}
                 required
@@ -121,7 +123,7 @@ const auth = () => {
               <label htmlFor="password-confirm">
                 <input
                   name="password-confirm"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="confirm password"
                   ref={passwordConfirmationRef}
                 />
@@ -133,18 +135,20 @@ const auth = () => {
               disabled={loading}
               type="submit"
             >
-              {isSignup ? "Sign up" : "Log in"}
+              {isSignup ? 'Sign up' : 'Log in'}
             </button>
             {error && <span className={styles.errorMessage}>{error}</span>}
           </form>
           <div className={styles.switchModeWrapper}>
             {isSignup ? (
               <>
+                <button onClick={googleAuth}>Sign in with Google!</button>
                 <p>Already have an account?</p>
                 <button onClick={handleSwitch}>Sign in</button>
               </>
             ) : (
               <>
+                <button onClick={googleAuth}>Sign up with Google!</button>
                 <p>Don't have an account?</p>
                 <button onClick={handleSwitch}>Sign up</button>
               </>

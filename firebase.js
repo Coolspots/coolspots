@@ -1,7 +1,7 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/functions";
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+import 'firebase/functions';
 
 const firebaseConfig = {
   // I had to add NEXT_PUBLIC so the browser can see it
@@ -13,13 +13,14 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = !firebase.apps.length
-  ? firebase.initializeApp(firebaseConfig)
-  : firebase.app();
+const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 export const auth = app.auth();
 export const db = app.firestore();
 export const functions = app.functions();
+
+// google auth
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 db.settings({ timestampsInSnapshots: true });
 

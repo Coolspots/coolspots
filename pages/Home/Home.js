@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
-import Head from "next/head";
-import Card from "../../components/Card/Card";
-import Loading from "../../components/Loading/Loading";
-import styles from "./Home.module.scss";
-import Layout from "../../components/Layout/Layout";
-import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from '../../contexts/AuthContext';
+import Head from 'next/head';
+import Card from '../../components/Card/Card';
+import SpotList from '../../components/SpotList/SpotList';
+import Loading from '../../components/Loading/Loading';
+import styles from './Home.module.scss';
+import Layout from '../../components/Layout/Layout';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -16,11 +17,11 @@ export default function Home() {
   const router = useRouter();
 
   if (!currentUser) {
-    router.push("/Landing");
+    router.push('/Landing');
   }
 
   useEffect(() => {
-    fetch("./api/spots")
+    fetch('./api/spots')
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -45,10 +46,7 @@ export default function Home() {
         result.push(spot);
       }
       spot.fields.tags?.forEach((tag) => {
-        if (
-          tag.toLowerCase().includes(str.toLowerCase()) &&
-          !result.includes(spot)
-        ) {
+        if (tag.toLowerCase().includes(str.toLowerCase()) && !result.includes(spot)) {
           result.push(spot);
         }
       });
@@ -69,49 +67,13 @@ export default function Home() {
 
   const renderCards = () => {
     if (filteredResult?.length) {
-      return filteredResult.map((spot) => {
-        return (
-          <Card
-            key={spot.id}
-            // TODO remove extension of spot object when the real images are in Airtable
-            spot={{
-              ...spot,
-              fields: {
-                ...spot.fields,
-                images: [
-                  "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
-                ],
-                priceFrom: "20",
-              },
-            }}
-          />
-        );
-      });
+      return <SpotList spots={filteredResult} />;
     }
     if (Array.isArray(filteredResult) && !filteredResult.length) {
-      return (
-        <p className={styles.noResultText}>No spots matching your search :(</p>
-      );
+      return <p className={styles.noResultText}>No spots matching your search :(</p>;
     }
 
-    return data?.map((spot) => {
-      return (
-        <Card
-          key={spot.id}
-          // TODO remove extension of spot object when the real images are in Airtable
-          spot={{
-            ...spot,
-            fields: {
-              ...spot.fields,
-              images: [
-                "https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg",
-              ],
-              priceFrom: "20",
-            },
-          }}
-        />
-      );
-    });
+    return <SpotList spots={data} />;
   };
 
   return (
@@ -123,10 +85,7 @@ export default function Home() {
     >
       <Head>
         <title>Coolspots</title>
-        <meta
-          name="Coolspots coworking space coffeshop bar coffee"
-          content="Coolspots home page"
-        />
+        <meta name="Coolspots coworking space coffeshop bar coffee" content="Coolspots home page" />
       </Head>
       <div className={styles.cardsContainer}></div>
       {renderCards()}
