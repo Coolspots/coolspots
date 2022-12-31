@@ -20,7 +20,7 @@ const SpotList = ({ spots }) => {
                   </div>
                 </div>
                 <img
-                  className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
+                  className="h-32 w-32 flex-shrink-0 rounded-full bg-gray-300"
                   src="https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg"
                   alt={`${spot.fields.name}'s image`}
                 />
