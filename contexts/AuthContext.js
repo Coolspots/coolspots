@@ -52,6 +52,7 @@ export function AuthProvider({ children }) {
       })
       .catch((error) => {
         setError(error);
+        console.log('ERROR => ', error);
       });
   }
 
