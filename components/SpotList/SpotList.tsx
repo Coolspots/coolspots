@@ -1,19 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import Link from 'next/link';
 import styles from './SpotList.module.scss';
-
-type SpotFields = {
-  city: string;
-  mapsLink: string;
-  description: string;
-  name: string;
-  tags: string[];
-};
-
-type Spot = {
-  id: string;
-  fields: SpotFields;
-};
+import { Spot } from '../../types/types';
 
 type SpotListProps = {
   spots: Spot[];

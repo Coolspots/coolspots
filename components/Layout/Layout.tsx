@@ -1,8 +1,19 @@
-import { useState } from "react";
-import classnames from "classnames";
-import styles from "../../styles/Layout.module.scss";
-import Header from "./Header/Header";
-import { useAuth } from "../../contexts/AuthContext";
+import { useState } from 'react';
+import classnames from 'classnames';
+import styles from '../../styles/Layout.module.scss';
+import Header from './Header/Header';
+import { useAuth } from '../../contexts/AuthContext';
+
+type LayoutProps = {
+  headerText: string;
+  children: Element[] | React.ReactNode;
+  areSpotsLoaded: boolean;
+  handleSearch: (a: string) => void;
+  handleFilterByCity: (a: string) => void;
+  spotName?: string;
+  shouldShowForm?: boolean;
+  setShouldShowForm?: (a: boolean) => void;
+};
 
 const Layout = ({
   children,
@@ -13,7 +24,7 @@ const Layout = ({
   setShouldShowForm,
   shouldShowForm,
   headerText,
-}) => {
+}: LayoutProps): JSX.Element => {
   const handleShowForm = () => {
     setShouldShowForm(!shouldShowForm);
   };
@@ -32,10 +43,7 @@ const Layout = ({
   const { login, logout, signup, currentUser } = useAuth();
   return (
     <>
-      <div
-        className={classnames({ [styles.overlay]: open })}
-        onClick={handleClickOverlay}
-      ></div>
+      <div className={classnames({ [styles.overlay]: open })} onClick={handleClickOverlay}></div>
       <div className={styles.container}>
         <Header
           showHeader={areSpotsLoaded}

@@ -22,6 +22,6 @@ export const functions = app.functions();
 // google auth
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-db.settings({ timestampsInSnapshots: true });
+db.settings({ timestampsInSnapshots: true, merge: true });
 
 export default app;
