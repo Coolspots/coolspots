@@ -20,7 +20,7 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
   const router = useRouter();
 
   if (!currentUser) {
-    router.push('/welcome');
+    router.push('/landing');
   }
 
   useEffect(() => {
