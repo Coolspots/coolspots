@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 import { useAuth } from '../../contexts/AuthContext';
 import Head from 'next/head';
 import Card from '../../components/Card/Card';
-import SpotList from '../../components/SpotList/SpotList';
+import SpotList from '../../components/SpotList/SpotList.tsx';
 import Loading from '../../components/Loading/Loading';
 import styles from './Home.module.scss';
 import Layout from '../../components/Layout/Layout';
 
-export default function Home() {
-  const [data, setData] = useState([]);
+export default function Home({ serverSideSpots = [] }) {
+  const [data, setData] = useState(serverSideSpots);
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
@@ -65,7 +65,7 @@ export default function Home() {
     setFilteredResult(result);
   };
 
-  const renderCards = () => {
+  const renderSpotList = () => {
     if (filteredResult?.length) {
       return <SpotList spots={filteredResult} />;
     }
@@ -88,21 +88,19 @@ export default function Home() {
         <meta name="Coolspots coworking space coffeshop bar coffee" content="Coolspots home page" />
       </Head>
       <div className={styles.cardsContainer}></div>
-      {renderCards()}
+      {renderSpotList()}
     </Layout>
   );
 }
 
-// export const getStaticProps = async () => {
-//   // TODO replace with real call to backend endpoint to retrieve cities
-//   const res = await fetch(
-//     `https://jsonplaceholder.typicode.com/posts?_limit=6`
-//   );
-//   const data = await res.json();
+export const getServerSideProps = async () => {
+  // TODO replace with real call to backend endpoint to retrieve cities
+  const res = await fetch('./api/spots');
+  const data = await res.json();
 
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
+  return {
+    props: {
+      data: serverSideSpots,
+    },
+  };
+};
