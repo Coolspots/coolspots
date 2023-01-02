@@ -2,6 +2,7 @@ import { useState } from 'react';
 import classnames from 'classnames';
 import styles from '../../styles/Layout.module.scss';
 import Header from './Header/Header';
+import CitiesFilter from './Citiesfilter/CitiesFilter';
 import { useAuth } from '../../contexts/AuthContext';
 
 type LayoutProps = {
@@ -48,7 +49,6 @@ const Layout = ({
         <Header
           showHeader={areSpotsLoaded}
           handleSearch={handleSearch}
-          handleFilterByCity={handleFilterByCity}
           spotName={spotName}
           headerText={headerText}
           handleShowForm={handleShowForm}
@@ -59,6 +59,7 @@ const Layout = ({
           handleOpenDropdown={handleOpenDropdown}
           open={open}
         />
+        <CitiesFilter handleFilterByCity={handleFilterByCity} />
         <main className={styles.main}>{children}</main>
       </div>
     </>

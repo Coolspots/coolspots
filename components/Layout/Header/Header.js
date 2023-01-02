@@ -1,12 +1,10 @@
-import Navbar from "./components/Navbar/Navbar";
-import SearchBar from "./components/Searchbar/SearchBar";
-import HeaderCities from "./components/HeaderCities/HeaderCities";
-import styles from "./Header.module.scss";
+import Navbar from './components/Navbar/Navbar';
+import SearchBar from './components/Searchbar/SearchBar';
+import styles from './Header.module.scss';
 
 const Header = ({
   showHeader,
   handleSearch,
-  handleFilterByCity,
   headerText,
   handleOpenDropdown,
   spotName,
@@ -33,7 +31,6 @@ const Header = ({
       {showHeader && (
         <>
           <SearchBar handleSearch={handleSearch} />
-          <HeaderCities handleFilterByCity={handleFilterByCity} />
         </>
       )}
     </div>
