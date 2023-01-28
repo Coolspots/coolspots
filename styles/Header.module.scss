@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 .headerSlogan {
   padding: 3.5rem 2.5rem 1rem;
@@ -7,34 +7,5 @@
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.53);
     font-weight: normal;
     line-height: 1.5rem;
-  }
-}
-
-.headerCities {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  .headerCityCard {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    margin: 0 1rem 0 0.5rem;
-    width: 120px;
-    height: 120px;
-    background-position: center;
-    background-size: cover;
-    border-radius: 20px;
-    &:active {
-      border: 4px solid $main-blue;
-    }
-    h2 {
-      font-style: normal;
-      font-weight: bold;
-      font-size: 12px;
-      line-height: 14px;
-      text-align: center;
-      text-shadow: 0px 2px 4px #000000;
-      padding-bottom: 2rem;
-    }
   }
 }

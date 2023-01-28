@@ -1,4 +1,4 @@
-const Airtable = require("airtable");
+import Airtable from 'airtable';
 
 // Authenticate
 Airtable.configure({
@@ -9,10 +9,7 @@ Airtable.configure({
 const base = Airtable.base(process.env.NEXT_PUBLIC_AIRTABLE_BASE);
 
 // Reference a table
-const table = base("spots");
-
-const minifyItems = (records) =>
-  records.map((record) => getMinifiedItem(record));
+const table = base('spots');
 
 // to make record meaningful.
 const getMinifiedItem = (record) => {
@@ -21,5 +18,6 @@ const getMinifiedItem = (record) => {
     fields: record.fields,
   };
 };
+const minifyItems = (records) => records.map((record) => getMinifiedItem(record));
 
 export { table, minifyItems, getMinifiedItem };

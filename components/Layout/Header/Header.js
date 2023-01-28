@@ -1,35 +1,12 @@
-import Navbar from './components/Navbar/Navbar';
 import SearchBar from './components/Searchbar/SearchBar';
 import styles from './Header.module.scss';
 
-const Header = ({
-  showHeader,
-  handleSearch,
-  headerText,
-  handleOpenDropdown,
-  spotName,
-  handleShowForm,
-  signup,
-  login,
-  currentUser,
-  logout,
-  open,
-}) => {
+const Header = ({ showHeader, handleSearch, headerText }) => {
   return (
     <div className={styles.header}>
-      <Navbar
-        spotName={spotName}
-        headerText={headerText}
-        handleShowForm={handleShowForm}
-        currentUser={currentUser}
-        logout={logout}
-        signup={signup}
-        login={login}
-        handleOpenDropdown={handleOpenDropdown}
-        open={open}
-      />
       {showHeader && (
         <>
+          <h2 className={styles.headerText}>{headerText}</h2>
           <SearchBar handleSearch={handleSearch} />
         </>
       )}

@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import classnames from 'classnames';
-import styles from '../../styles/Layout.module.scss';
+import styles from './Layout.module.scss';
+import Navbar from '../Navbar/Navbar';
 import Header from './Header/Header';
-import CitiesFilter from './Citiesfilter/CitiesFilter';
-import { useAuth } from '../../contexts/AuthContext';
+import CitiesFilter from './CitiesFilter/CitiesFilter';
 
 type LayoutProps = {
   headerText: string;
@@ -14,6 +12,8 @@ type LayoutProps = {
   spotName?: string;
   shouldShowForm?: boolean;
   setShouldShowForm?: (a: boolean) => void;
+  showHeader: boolean;
+  showCitiesFilter: boolean;
 };
 
 const Layout = ({
@@ -21,48 +21,19 @@ const Layout = ({
   areSpotsLoaded,
   handleSearch,
   handleFilterByCity,
-  spotName,
-  setShouldShowForm,
-  shouldShowForm,
   headerText,
+  showHeader,
+  showCitiesFilter,
 }: LayoutProps): JSX.Element => {
-  const handleShowForm = () => {
-    setShouldShowForm(!shouldShowForm);
-  };
-
-  const [open, setOpen] = useState(false);
-
-  const handleClickOverlay = (e) => {
-    e.stopPropagation();
-    setOpen((prevState) => !prevState);
-  };
-
-  const handleOpenDropdown = () => {
-    setOpen((prevState) => !prevState);
-  };
-
-  const { login, logout, signup, currentUser } = useAuth();
   return (
-    <>
-      <div className={classnames({ [styles.overlay]: open })} onClick={handleClickOverlay}></div>
-      <div className={styles.container}>
-        <Header
-          showHeader={areSpotsLoaded}
-          handleSearch={handleSearch}
-          spotName={spotName}
-          headerText={headerText}
-          handleShowForm={handleShowForm}
-          currentUser={currentUser}
-          logout={logout}
-          signup={signup}
-          login={login}
-          handleOpenDropdown={handleOpenDropdown}
-          open={open}
-        />
-        <CitiesFilter handleFilterByCity={handleFilterByCity} />
-        <main className={styles.main}>{children}</main>
-      </div>
-    </>
+    <div className={styles.container}>
+      <Navbar />
+      {showHeader && (
+        <Header headerText={headerText} showHeader={areSpotsLoaded} handleSearch={handleSearch} />
+      )}
+      {showCitiesFilter && <CitiesFilter handleFilterByCity={handleFilterByCity} />}
+      <main className={styles.main}>{children}</main>
+    </div>
   );
 };
 

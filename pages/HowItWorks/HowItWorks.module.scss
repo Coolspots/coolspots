@@ -1,21 +1,24 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .howItWorksPage {
   text-align: center;
   color: $dark;
+
   .header {
     .navbar {
       height: 100%;
     }
   }
-  h1 {
-    @media (min-width: $breakpoint-tablet) {
+
+  @media (min-width: $breakpoint-tablet) {
+    h1 {
       font-size: 42px;
     }
     padding: 1.5rem;
     font-size: 24px;
     font-weight: 400;
   }
+
   .cardWrapper {
     display: flex;
     flex-direction: column;
@@ -24,6 +27,7 @@
       flex-direction: row;
     }
   }
+
   .card {
     width: 100%;
     max-width: 400px;
@@ -36,6 +40,7 @@
       flex-direction: column-reverse;
     }
   }
+
   .section {
     padding: 2rem;
     padding-bottom: 0;
@@ -50,12 +55,6 @@
       padding: 1rem 0;
       font-size: 1rem;
     }
-  }
-  h3 {
-    padding-bottom: 1.5rem;
-  }
-  h4 {
-    font-size: 1.5rem;
   }
 }
 

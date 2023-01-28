@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import 'firebase/functions';
 
 const firebaseConfig = {
-  // I had to add NEXT_PUBLIC so the browser can see it
+  // the prefix NEXT_PUBLIC is needed for nextjs to read the env variables
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,

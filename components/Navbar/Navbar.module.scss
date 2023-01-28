@@ -1,0 +1,64 @@
+@import '../../styles/variables.scss';
+
+.navbar {
+  display: block;
+  width: 100%;
+
+  .navList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .textLogo {
+    font-weight: 800;
+    color: $main-blue;
+  }
+
+  .dropdownLinks {
+    display: none;
+    text-align: right;
+
+    a {
+      display: block;
+      padding-bottom: 0.5rem;
+    }
+
+    &.isMenuOpen {
+      position: absolute;
+      right: 12px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 24px;
+      gap: 32px;
+      width: 168px;
+      height: 142px;
+
+      background: #ffffff;
+      /* borders light */
+
+      border: 1px solid #efefef;
+
+      box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.09);
+      border-radius: 10px;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+
+        .loginBtn {
+          color: $main-blue;
+        }
+
+        .signupBtn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

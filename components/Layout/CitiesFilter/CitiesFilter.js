@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import classnames from 'classnames';
-import styles from './HeaderCities.module.scss';
+import styles from './CitiesFilter.module.scss';
 
 const HeaderCities = ({ handleFilterByCity }) => {
   const cities = [
@@ -47,12 +45,18 @@ const HeaderCities = ({ handleFilterByCity }) => {
           style={{ backgroundImage: 'url(' + city.img + ')' }}
           key={city.name}
         >
-          <h2>{city.name}</h2>
+          <h3>{city.name}</h3>
         </li>
       );
     });
   };
-  return <ul className={classnames(styles.citiesFilter)}>{renderCities()}</ul>;
+  return (
+    <section className={styles.wrapper}>
+      <h2 className={styles.title}>Available locations</h2>
+      <button>See All</button>
+      <ul className={styles.cityList}>{renderCities()}</ul>
+    </section>
+  );
 };
 
 export default HeaderCities;

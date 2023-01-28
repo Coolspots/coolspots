@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
 import styles from './SpotList.module.scss';
 import { Spot } from '../../types/types';
@@ -28,8 +28,8 @@ const SpotList = ({ spots }: SpotListProps): ReactElement => {
                   </div>
                 </div>
                 <img
-                  className="h-32 w-32 flex-shrink-0 rounded-full bg-gray-300"
-                  src="https://www.metodo-zero.it/mz/wp-content/uploads/2020/09/Chiara-Grossi-28.jpg"
+                  className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300"
+                  src={spot.fields.imgLink}
                   alt={`${spot.fields.name}'s image`}
                 />
               </div>

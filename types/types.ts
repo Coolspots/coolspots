@@ -3,6 +3,7 @@ export type SpotFields = {
   mapsLink: string;
   description: string;
   name: string;
+  imgLink: string;
   tags: string[];
 };
 

@@ -13,7 +13,7 @@ type ServerSideProps = {
 };
 
 export default function Home({ serverSideSpots = [] }: ServerSideProps) {
-  const [data, setData] = useState(serverSideSpots);
+  const [spots, setSpots] = useState(serverSideSpots);
   const [filteredResult, setFilteredResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
@@ -27,13 +27,12 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
     fetch('./api/spots')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setData(data);
+        setSpots(data);
         setLoading(false);
       });
   }, []);
 
-  if (loading || !data.length) {
+  if (loading || !spots.length) {
     return <Loading />;
   }
 
@@ -41,7 +40,7 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
   const handleSearch = (str) => {
     const result = [];
     // TODO rework search now it sucks
-    data.forEach((spot) => {
+    spots.forEach((spot) => {
       if (result.includes(spot)) {
         return;
       }
@@ -60,7 +59,7 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
 
   const handleFilterByCity = (cityFromHeader) => {
     const result = [];
-    data.forEach((spot) => {
+    spots.forEach((spot) => {
       if (spot.fields.city?.toLowerCase() === cityFromHeader.toLowerCase()) {
         result.push(spot);
       }
@@ -76,7 +75,7 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
       return <p className={styles.noResultText}>No spots matching your search :(</p>;
     }
 
-    return <SpotList spots={data} />;
+    return <SpotList spots={spots} />;
   };
 
   return (
@@ -86,10 +85,12 @@ export default function Home({ serverSideSpots = [] }: ServerSideProps) {
         <meta name="Coolspots coworking space coffeshop bar coffee" content="Coolspots home page" />
       </Head>
       <Layout
-        areSpotsLoaded={!!data.length}
+        areSpotsLoaded={!!spots.length}
         handleSearch={handleSearch}
         handleFilterByCity={handleFilterByCity}
         headerText="Book coffeeshops and co-working spaces to work from anywhere"
+        showHeader
+        showCitiesFilter
       >
         {renderSpotList()}
       </Layout>

@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .landingPage {
   height: 100%;
@@ -7,19 +7,25 @@
   max-width: 1200px;
   margin: 0 auto;
   color: #424242;
+  padding: 1rem 1.5rem;
 
   section {
     display: flex;
-    padding: 1.5rem 1.5rem 0 3rem;
     flex-wrap: wrap;
+
+    &:first-of-type {
+      margin-bottom: 60px;
+    }
 
     @media (min-width: $breakpoint-tablet) {
       flex-wrap: nowrap;
     }
   }
+
   img {
     max-width: 100%;
   }
+
   h4 {
     padding: 0.5rem 0;
   }
@@ -27,14 +33,26 @@
 
 .mainSectionLanding {
   .landingTitle {
-    font-size: 54px;
+    font-size: 58px;
+    line-height: 65px;
+    font-weight: 800;
+    color: #18191f;
 
     @media (min-width: $breakpoint-desktop) {
       font-size: 68px;
     }
   }
+
   p {
     padding: 1rem 0;
+  }
+
+  .imageWrapper {
+    display: none;
+
+    @media (min-width: $breakpoint-desktop) {
+      display: block;
+    }
   }
 }
 
@@ -48,9 +66,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+
   @media (min-width: $breakpoint-desktop) {
-    width: 75%;
     p {
       font-size: 1.5rem;
     }
@@ -58,25 +75,9 @@
 }
 
 .imageWrapper {
+  display: block;
   width: 100%;
   text-align: right;
-}
-
-.nav {
-  ul,
-  li,
-  .loggBtnsWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1rem;
-  }
-  li {
-    padding: 1rem;
-  }
-  .coolspotsLogo {
-    padding: 0.5rem;
-  }
 }
 
 .footer {

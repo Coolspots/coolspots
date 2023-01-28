@@ -1,42 +1,38 @@
-import classnames from "classnames";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import Layout from "../../components/Layout/Layout";
-import Loading from "../../components/Loading/Loading";
-import styles from "./DetailPage.module.scss";
-import { useAuth } from "../../contexts/AuthContext";
-import { db } from "../../firebase";
+import classnames from 'classnames';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Layout from '../../components/Layout/Layout';
+import Loading from '../../components/Loading/Loading';
+import styles from './DetailPage.module.scss';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Spot = () => {
   const router = useRouter();
   const { currentUser } = useAuth();
-  const [spotData, setSpotData] = useState([]);
+  const [spotData, setSpotData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shouldShowForm, setShouldShowForm] = useState(false);
   const { spotId } = router.query;
 
+  const getSpot = async () => {
+    const res = await fetch(`../api/spots/${spotId}`);
+    const { spot } = await res.json();
+
+    setSpotData(spot.fields);
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (!router.isReady) return;
-    const docRef = db.collection("spots").doc(spotId);
-
-    docRef
-      .get()
-      .then((doc) => {
-        if (doc.exists) {
-          console.log("Document data:", doc.data());
-          setSpotData(doc.data());
-          setLoading(false);
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      })
-      .catch((error) => {
-        console.log("Error getting document:", error);
-      });
+    getSpot();
   }, [router.isReady]);
 
   const renderGallery = () => {
+    // TODO add more photos in airtable
+    // render only one photo for now
+    if (spotData.imgLink) {
+      return <img src={`${spotData.imgLink}`} alt={`${spotData.name} image`} />;
+    }
     if (spotData.images) {
       const gallery = spotData.images.map((img) => {
         return <img key={img} src={`${img}`} alt={`${spotData.name} image`} />;
@@ -46,16 +42,16 @@ const Spot = () => {
   };
 
   const renderAmenities = () => {
-    if (spotData.amenities) {
-      const amenitiesList = spotData.amenities.map((amenity) => {
-        return <li key={amenity}>{amenity}</li>;
+    if (spotData.tags) {
+      const tagList = spotData.tags.map((tag) => {
+        return <li key={tag}>{tag}</li>;
       });
-      return amenitiesList;
+      return tagList;
     }
   };
 
   const renderMap = (src) => {
-    return <iframe src={src} allowfullscreen="" loading="lazy"></iframe>;
+    return <iframe src={src} loading="lazy"></iframe>;
   };
 
   const renderReviews = () => {
@@ -68,8 +64,16 @@ const Spot = () => {
     return <p>This spot has no reviews yet</p>;
   };
 
+  const bookSpot = () => {
+    return currentUser ? setShouldShowForm(!shouldShowForm) : router.push('/auth');
+  };
+
   if (loading) {
     return <Loading />;
+  }
+
+  if (!spotData || !Object.keys(spotData).length) {
+    return <div>"Couldn't load spot... :("</div>;
   }
 
   return (
@@ -95,13 +99,12 @@ const Spot = () => {
           <iframe
             className="airtable-embed airtable"
             src="https://airtable.com/embed/shr95YVBnPuPPKbRB?backgroundColor=blue"
-            onmousewheel=""
             style={{
-              background: "transparent",
-              border: "1px solid #ccc",
-              frameborder: "0",
-              width: "100%",
-              height: "100%",
+              background: 'transparent',
+              border: '1px solid #ccc',
+              frameborder: '0',
+              width: '100%',
+              height: '100%',
             }}
           ></iframe>
         </div>
@@ -122,9 +125,7 @@ const Spot = () => {
           </section>
           <section className={styles.locationSection}>
             <h3>Location</h3>
-            <div className={styles.mapWrapper}>
-              {renderMap(spotData.embeddedMapSource)}
-            </div>
+            <div className={styles.mapWrapper}>{renderMap(spotData.mapsLink)}</div>
           </section>
           <section className={styles.reviews}>
             <h3>Reviews</h3>
@@ -133,14 +134,7 @@ const Spot = () => {
           </section>
         </div>
         <div className={styles.bookBtnBottomWrapper}>
-          <button
-            className={styles.bookBtn}
-            onClick={() => {
-              currentUser
-                ? setShouldShowForm(!shouldShowForm)
-                : router.push("/auth");
-            }}
-          >
+          <button className={styles.bookBtn} onClick={() => bookSpot()}>
             Book
           </button>
         </div>
