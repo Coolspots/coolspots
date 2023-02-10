@@ -1,13 +1,14 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import classnames from 'classnames';
-import Burger from './Burger/Burger';
+import Image from 'next/image';
+
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 import { useAuth } from '../../contexts/AuthContext';
+import Burger from './Burger/Burger';
 
 const NavBar = () => {
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isMenuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
@@ -22,14 +23,12 @@ const NavBar = () => {
 
     try {
       setError('');
-      setLoading(true);
       await logout();
       router.push('/');
     } catch (err) {
       setError(err.message);
       alert(error);
     }
-    setLoading(false);
   };
 
   return (
@@ -38,31 +37,52 @@ const NavBar = () => {
         <li className={styles.textLogo}>
           <Link href="/">coolspots</Link>
         </li>
-        <li>
-          {/* here we should render burger in landing and myProfile button */}
-          <Burger handleOpenDropdown={handleOpenDropdown} isMenuOpen={isMenuOpen} />
+        <li
+          className={classnames(styles.menuButtonWrapper, { [styles.isLandingPage]: !currentUser })}
+        >
+          {!currentUser && (
+            <Burger handleOpenDropdown={handleOpenDropdown} isMenuOpen={isMenuOpen} />
+          )}
+
+          {/* here we render burger in landing and profile button */}
+          {currentUser && (
+            <button
+              className={classnames(styles.menuButton, { [styles.open]: isMenuOpen })}
+              onClick={() => setMenuOpen((prevState) => !prevState)}
+            >
+              <Image src="/icons/openDropdownMenu.svg" height={30} width={30} />
+            </button>
+          )}
         </li>
       </ul>
 
-      <div className={classnames(styles.dropdownLinks, { [styles.isMenuOpen]: isMenuOpen })}>
+      <div className={classnames(styles.dropdownWrapper, { [styles.isMenuOpen]: isMenuOpen })}>
         {currentUser ? (
-          <button className="mainBtn" onClick={handleLogout}>
-            Logout
-          </button>
+          <>
+            <button className={styles.dropdownButtons}>
+              <p>{currentUser.email}</p>
+              <p>See your profile</p>
+            </button>
+            <button className={styles.dropdownButtons}>Give Feedback</button>
+            <button className={styles.dropdownButtons} onClick={handleLogout}>
+              Logout
+            </button>
+          </>
         ) : (
-          // here we should render burger in landing and myProfile button
-          <ul>
-            <li>
-              <Link href="/auth">
-                <button className={styles.loginBtn}>Log in</button>
-              </Link>
-            </li>
-            <li>
-              <Link href="/auth">
-                <button className={classnames('mainBtn', styles.signupBtn)}>Sign up</button>
-              </Link>
-            </li>
-          </ul>
+          <>
+            <ul>
+              <li>
+                <Link href="/auth">
+                  <button className={styles.loginBtn}>Log in</button>
+                </Link>
+              </li>
+              <li>
+                <Link href="/auth">
+                  <button className={classnames('mainBtn', styles.signupBtn)}>Sign up</button>
+                </Link>
+              </li>
+            </ul>
+          </>
         )}
       </div>
     </nav>

@@ -44,7 +44,7 @@ const auth = () => {
       setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-    } catch (error) {
+    } catch (err) {
       setError('Failed to create an account');
     }
     setLoading(false);
@@ -59,8 +59,8 @@ const auth = () => {
       setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
     }
     setLoading(false);
   };
@@ -84,31 +84,15 @@ const auth = () => {
             {isSignup && (
               <>
                 <label htmlFor="name">
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="name"
-                    ref={nameRef}
-                  />
+                  <input name="name" type="text" placeholder="name" ref={nameRef} />
                 </label>
                 <label htmlFor="phone">
-                  <input
-                    name="phone"
-                    type="text"
-                    placeholder="phone number"
-                    ref={phoneRef}
-                  />
+                  <input name="phone" type="text" placeholder="phone number" ref={phoneRef} />
                 </label>
               </>
             )}
             <label htmlFor="email">
-              <input
-                name="email"
-                type="email"
-                placeholder="email"
-                ref={emailRef}
-                required
-              />
+              <input name="email" type="email" placeholder="email" ref={emailRef} required />
             </label>
             <label htmlFor="password">
               <input

@@ -1,4 +1,4 @@
-import { table, minifyItems } from '../../Airtable';
+import { table, minifyItems } from '../../../Airtable';
 
 export default async (_req, res) => {
   try {

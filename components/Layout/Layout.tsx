@@ -26,14 +26,16 @@ const Layout = ({
   showCitiesFilter,
 }: LayoutProps): JSX.Element => {
   return (
-    <div className={styles.container}>
+    <>
       <Navbar />
-      {showHeader && (
-        <Header headerText={headerText} showHeader={areSpotsLoaded} handleSearch={handleSearch} />
-      )}
-      {showCitiesFilter && <CitiesFilter handleFilterByCity={handleFilterByCity} />}
-      <main className={styles.main}>{children}</main>
-    </div>
+      <div className={styles.container}>
+        {showHeader && (
+          <Header headerText={headerText} showHeader={areSpotsLoaded} handleSearch={handleSearch} />
+        )}
+        {showCitiesFilter && <CitiesFilter handleFilterByCity={handleFilterByCity} />}
+        <main className={styles.main}>{children}</main>
+      </div>
+    </>
   );
 };
 
