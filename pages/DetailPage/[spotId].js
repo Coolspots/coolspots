@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import parse from 'html-react-parser';
 import classnames from 'classnames';
 import { useRouter } from 'next/router';
@@ -48,10 +49,6 @@ const Spot = () => {
       });
       return tagList;
     }
-  };
-
-  const renderMap = (iframe) => {
-    return iframe;
   };
 
   const renderReviews = () => {
@@ -109,10 +106,7 @@ const Spot = () => {
           ></iframe>
         </div>
         <div className={styles.spotInfo}>
-          <section className={styles.gallerySection}>
-            <h3>Gallery</h3>
-            {renderGallery()}
-          </section>
+          <section className={styles.gallerySection}>{renderGallery()}</section>
           <section className={styles.amenitiesSection}>
             <h3>Amenities</h3>
             <ul>{renderAmenities()}</ul>
@@ -125,9 +119,7 @@ const Spot = () => {
           </section>
           <section className={styles.locationSection}>
             <h3>Location</h3>
-            <div className={styles.mapWrapper}>
-              <>{parse(spotData.mapsEmbed)}</>
-            </div>
+            <div className={styles.mapWrapper}>{parse(spotData.mapsEmbed)}</div>
           </section>
           <section className={styles.reviews}>
             <h3>Reviews</h3>
