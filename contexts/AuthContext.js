@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth, googleProvider } from '../firebase';
 
+// we cant add custom data into the user in firebase so we could create a new User collection with
+//  custom user data and retrieve both
 const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -52,7 +54,6 @@ export function AuthProvider({ children }) {
       })
       .catch((error) => {
         setError(error);
-        console.log('ERROR => ', error);
       });
   }
 

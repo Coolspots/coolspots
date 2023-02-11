@@ -7,7 +7,6 @@ import styles from './Auth.module.scss';
 const auth = () => {
   const { signup, login, googleAuth, currentUser } = useAuth();
   const [isSignup, setIsSignup] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -21,10 +20,6 @@ const auth = () => {
   if (currentUser) {
     router.push('/');
   }
-
-  const handleShowPassword = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
 
   const isValidEmail = (email) => {
     const re =
@@ -97,7 +92,7 @@ const auth = () => {
             <label htmlFor="password">
               <input
                 name="password"
-                type={showPassword ? 'text' : 'password'}
+                type={'password'}
                 placeholder="password"
                 ref={passwordRef}
                 required
@@ -107,7 +102,7 @@ const auth = () => {
               <label htmlFor="password-confirm">
                 <input
                   name="password-confirm"
-                  type={showPassword ? 'text' : 'password'}
+                  type={'password'}
                   placeholder="confirm password"
                   ref={passwordConfirmationRef}
                 />

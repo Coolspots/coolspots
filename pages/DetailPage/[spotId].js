@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react';
+import parse from 'html-react-parser';
 import classnames from 'classnames';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout/Layout';
 import Loading from '../../components/Loading/Loading';
 import styles from './DetailPage.module.scss';
@@ -17,7 +18,6 @@ const Spot = () => {
   const getSpot = async () => {
     const res = await fetch(`../api/spots/${spotId}`);
     const { spot } = await res.json();
-
     setSpotData(spot.fields);
     setLoading(false);
   };
@@ -50,8 +50,8 @@ const Spot = () => {
     }
   };
 
-  const renderMap = (src) => {
-    return <iframe src={src} loading="lazy"></iframe>;
+  const renderMap = (iframe) => {
+    return iframe;
   };
 
   const renderReviews = () => {
@@ -125,7 +125,9 @@ const Spot = () => {
           </section>
           <section className={styles.locationSection}>
             <h3>Location</h3>
-            <div className={styles.mapWrapper}>{renderMap(spotData.mapsLink)}</div>
+            <div className={styles.mapWrapper}>
+              <>{parse(spotData.mapsEmbed)}</>
+            </div>
           </section>
           <section className={styles.reviews}>
             <h3>Reviews</h3>

@@ -21,6 +21,7 @@ module.exports = {
       'always',
       { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
     ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: false }],
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     'no-console': ['error'],

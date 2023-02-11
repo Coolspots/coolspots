@@ -1,9 +1,6 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .detailPage {
-  .navbar {
-    background-color: red;
-  }
 }
 .spotInfo {
   padding: 1rem;
@@ -22,6 +19,9 @@
   padding: 0;
   img {
     width: 100%;
+    @media (min-width: $breakpoint-desktop) {
+      width: 50%;
+    }
   }
 }
 .lineDivision {
